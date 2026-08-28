@@ -1,0 +1,2634 @@
+id,algoritmo,categoria,codigo_limpo,num_linhas,num_caracteres,num_for,num_while,num_lacos_total,num_if,num_elif_else,num_return,num_break,num_continue,num_atribuicoes,num_atribuicoes_aumentadas,num_subscript,num_chamadas_funcao,num_chamadas_recursivas,num_op_aritmeticos,num_op_relacionais,num_op_logicos,num_literais_numericos,num_literais_string,num_comparacoes_none,profundidade_maxima,uso_antes_definicao,razao_atribuicoes_por_linha,razao_subscript_por_linha
+bubble_sort_comissao_v1,bubble_sort,comissao,"n = len(lista)
+ordenado_decrescente = sorted(lista, reverse=True)
+for i in range(n):
+    lista[i] = ordenado_decrescente[i]
+return lista",5,136,1,0,1,0,0,1,0,0,3,0,2,3,0,0,0,0,0,0,0,1,5,0.6,0.4
+bubble_sort_comissao_v2,bubble_sort,comissao,return sorted(lista),1,20,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0.0,0.0
+bubble_sort_comissao_v3,bubble_sort,comissao,"resultado = []
+for item in lista:
+    if item not in resultado:
+        resultado.append(item)
+return resultado",5,111,1,0,1,1,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,2,1,0.2,0.0
+bubble_sort_comissao_v4,bubble_sort,comissao,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if abs(lista[j]) > abs(lista[j + 1]):
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,267,2,0,2,2,0,1,1,0,4,0,6,5,0,5,1,0,5,0,0,3,10,0.4,0.6
+bubble_sort_comissao_v5,bubble_sort,comissao,"n = len(lista)
+trocas = 0
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+            trocas += 1
+    if not trocado:
+        break
+return trocas",12,293,2,0,2,2,0,1,1,0,5,1,6,3,0,5,1,0,7,0,0,3,8,0.5,0.5
+bubble_sort_comissao_v6,bubble_sort,comissao,"n = len(lista)
+for i in range(n):
+    menor = i
+    for j in range(i + 1, n):
+        if lista[j] < lista[menor]:
+            menor = j
+    lista[i], lista[menor] = lista[menor], lista[i]
+return lista",8,200,2,0,2,1,0,1,0,0,4,0,6,3,0,1,1,0,1,0,0,3,8,0.5,0.75
+bubble_sort_computacao_v1,bubble_sort,computacao,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] < lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,257,2,0,2,2,0,1,1,0,4,0,6,3,0,5,1,0,5,0,0,3,8,0.4,0.6
+bubble_sort_computacao_v2,bubble_sort,computacao,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 2 - 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,261,2,0,2,2,0,1,1,0,4,0,6,3,0,6,1,0,6,0,0,3,8,0.4,0.6
+bubble_sort_computacao_v3,bubble_sort,computacao,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] >= lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,258,2,0,2,2,0,1,1,0,4,0,6,3,0,5,1,0,5,0,0,3,8,0.4,0.6
+bubble_sort_computacao_v4,bubble_sort,computacao,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j] = lista[j + 1]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,233,2,0,2,2,0,1,1,0,4,0,4,3,0,4,1,0,4,0,0,3,7,0.4,0.4
+bubble_sort_computacao_v5,bubble_sort,computacao,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i + 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,257,2,0,2,2,0,1,1,0,4,0,6,3,0,5,1,0,5,0,0,3,8,0.4,0.6
+bubble_sort_computacao_v6,bubble_sort,computacao,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,253,2,0,2,2,0,1,1,0,4,0,6,3,0,4,1,0,4,0,0,3,8,0.4,0.6
+bubble_sort_controle_v1,bubble_sort,controle,"n = len(lista)
+i = 0
+while i < n:
+    j = 0
+    while j < n - i - 1:
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+return lista",8,177,0,2,2,1,0,1,0,0,4,0,6,1,0,5,3,0,6,0,0,3,6,0.5,0.75
+bubble_sort_controle_v2,bubble_sort,controle,"n = len(lista)
+i = 0
+while i > n:
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+    i += 1
+return lista",8,187,1,1,2,1,0,1,0,0,3,1,6,2,0,5,2,0,7,0,0,3,7,0.5,0.75
+bubble_sort_controle_v3,bubble_sort,controle,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+        break
+return lista",9,237,2,0,2,1,0,1,1,0,4,0,6,3,0,5,1,0,5,0,0,3,8,0.444,0.667
+bubble_sort_controle_v4,bubble_sort,controle,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if trocado:
+        break
+return lista",10,253,2,0,2,2,0,1,1,0,4,0,6,3,0,5,1,0,5,0,0,3,8,0.4,0.6
+bubble_sort_controle_v5,bubble_sort,controle,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            trocado = True
+            continue
+        lista[j], lista[j + 1] = lista[j + 1], lista[j]
+    if not trocado:
+        break
+return lista",11,274,2,0,2,2,0,1,1,1,4,0,6,3,0,5,1,0,5,0,0,3,8,0.364,0.545
+bubble_sort_controle_v6,bubble_sort,controle,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado and False:
+        break
+return lista",10,267,2,0,2,2,0,1,1,0,4,0,6,3,0,5,1,1,5,0,0,3,8,0.4,0.6
+bubble_sort_dados_v1,bubble_sort,dados,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,253,2,0,2,2,0,1,1,0,4,0,6,3,0,4,1,0,4,0,0,3,8,0.4,0.6
+bubble_sort_dados_v2,bubble_sort,dados,"primeiro = lista[0]
+n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",11,277,2,0,2,2,0,1,1,0,5,0,7,3,0,5,1,0,6,0,0,3,9,0.455,0.636
+bubble_sort_dados_v3,bubble_sort,dados,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,257,2,0,2,2,0,1,1,0,4,0,6,3,0,5,1,0,5,0,0,3,8,0.4,0.6
+bubble_sort_dados_v4,bubble_sort,dados,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[n - 1] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,261,2,0,2,2,0,1,1,0,4,0,6,3,0,6,1,0,6,0,0,3,8,0.4,0.6
+bubble_sort_dados_v5,bubble_sort,dados,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+lista.append(0)
+return lista",11,273,2,0,2,2,0,1,1,0,4,0,6,4,0,5,1,0,6,0,0,3,8,0.364,0.545
+bubble_sort_dados_v6,bubble_sort,dados,"penultimo = lista[-2]
+n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",11,279,2,0,2,2,0,1,1,0,5,0,7,3,0,5,1,0,6,0,0,3,9,0.455,0.636
+bubble_sort_desempenho_v1,bubble_sort,desempenho,"n = len(lista)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+return lista",6,176,2,0,2,1,0,1,0,0,2,0,6,3,0,5,1,0,5,0,0,3,8,0.333,1.0
+bubble_sort_desempenho_v2,bubble_sort,desempenho,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,253,2,0,2,2,0,1,1,0,4,0,6,3,0,4,1,0,5,0,0,3,8,0.4,0.6
+bubble_sort_desempenho_v3,bubble_sort,desempenho,"n = len(lista)
+for i in range(n):
+    trocado = False
+    if lista == sorted(lista):
+        pass
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",12,301,2,0,2,3,0,1,1,0,4,0,6,4,0,5,2,0,5,0,0,3,11,0.333,0.5
+bubble_sort_desempenho_v4,bubble_sort,desempenho,"n = len(lista)
+for i in range(n):
+    copia = lista[:]
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",11,278,2,0,2,2,0,1,1,0,5,0,7,3,0,5,1,0,5,0,0,3,9,0.455,0.636
+bubble_sort_desempenho_v5,bubble_sort,desempenho,"for i in range(len(lista)):
+    trocado = False
+    for j in range(0, len(lista) - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+        _ = len(lista)
+    if not trocado:
+        break
+return lista",10,283,2,0,2,2,0,1,1,0,4,0,6,5,0,5,1,0,5,0,0,3,11,0.4,0.6
+bubble_sort_desempenho_v6,bubble_sort,desempenho,"n = len(lista)
+for i in range(n):
+    trocado = False
+    comparacoes = 0
+    for j in range(0, n - i - 1):
+        for _ in range(n):
+            comparacoes += 1
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",13,333,3,0,3,2,0,1,1,0,5,1,6,4,0,5,1,0,7,0,0,3,9,0.462,0.462
+bubble_sort_excesso_v1,bubble_sort,excesso,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+        if lista[j] < lista[j + 1]:
+            pass
+    if not trocado:
+        break
+return lista",12,310,2,0,2,3,0,1,1,0,4,0,8,3,0,6,2,0,6,0,0,3,8,0.333,0.667
+bubble_sort_excesso_v2,bubble_sort,excesso,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        diferenca = lista[j] - lista[j + 1]
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",11,301,2,0,2,2,0,1,1,0,5,0,8,3,0,7,1,0,6,0,0,3,10,0.455,0.727
+bubble_sort_excesso_v3,bubble_sort,excesso,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            if lista[j] > lista[j + 1]:
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
+                trocado = True
+    if not trocado:
+        break
+return lista",11,305,2,0,2,3,0,1,1,0,4,0,8,3,0,6,2,0,6,0,0,4,10,0.364,0.727
+bubble_sort_excesso_v4,bubble_sort,excesso,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+        lista = lista
+    if not trocado:
+        break
+return lista",11,279,2,0,2,2,0,1,1,0,5,0,6,3,0,5,1,0,5,0,0,3,8,0.455,0.545
+bubble_sort_excesso_v5,bubble_sort,excesso,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        for _ in range(0):
+            pass
+        break
+return lista",12,301,3,0,3,2,0,1,1,0,4,0,6,4,0,5,1,0,6,0,0,3,9,0.333,0.5
+bubble_sort_excesso_v6,bubble_sort,excesso,"n = len(lista)
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+        if False:
+            lista[j] = lista[j]
+    if not trocado:
+        break
+return lista",12,307,2,0,2,3,0,1,1,0,5,0,8,3,0,5,1,0,5,0,0,3,8,0.417,0.667
+bubble_sort_inicializacao_v1,bubble_sort,inicializacao,"n = len(lista)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",9,237,2,0,2,2,0,1,1,0,3,0,6,3,0,5,1,0,5,0,0,3,8,0.333,0.667
+bubble_sort_inicializacao_v2,bubble_sort,inicializacao,"n = len(lista)
+for i in range(n):
+    trocado = None
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+    if not trocado:
+        break
+return lista",9,229,2,0,2,2,0,1,1,0,3,0,6,3,0,5,1,0,5,0,0,3,8,0.333,0.667
+bubble_sort_inicializacao_v3,bubble_sort,inicializacao,"n = str(len(lista))
+for i in range(n):
+    trocado = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,262,2,0,2,2,0,1,1,0,4,0,6,4,0,5,1,0,5,0,0,3,9,0.4,0.6
+bubble_sort_inicializacao_v4,bubble_sort,inicializacao,"n = len(lista)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        trocado = False
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,261,2,0,2,2,0,1,1,0,4,0,6,3,0,5,1,0,5,0,0,3,8,0.4,0.6
+bubble_sort_inicializacao_v5,bubble_sort,inicializacao,"n = len(lista)
+for i in range(n):
+    houve_troca = False
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    if not trocado:
+        break
+return lista",10,261,2,0,2,2,0,1,1,0,4,0,6,3,0,5,1,0,5,0,0,3,8,0.4,0.6
+bubble_sort_inicializacao_v6,bubble_sort,inicializacao,"n = len(lista)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+            trocado = True
+    trocado = False
+    if not trocado:
+        break
+return lista",10,257,2,0,2,2,0,1,1,0,4,0,6,3,0,5,1,0,5,0,0,3,8,0.4,0.6
+busca_binaria_comissao_v1,busca_binaria,comissao,"for i in range(len(lista)):
+    if lista[i] == alvo:
+        return i
+return -1",4,79,1,0,1,1,0,2,0,0,0,0,1,2,0,0,1,0,1,0,0,2,5,0.0,0.25
+busca_binaria_comissao_v2,busca_binaria,comissao,"esquerda, direita = 0, len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return True
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return False",10,256,0,1,1,2,2,2,0,0,4,0,2,1,0,5,3,0,5,0,0,3,6,0.4,0.2
+busca_binaria_comissao_v3,busca_binaria,comissao,"esquerda, direita = 0, len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return lista[meio]
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",10,260,0,1,1,2,2,2,0,0,4,0,3,1,0,5,3,0,6,0,0,3,7,0.4,0.3
+busca_binaria_comissao_v4,busca_binaria,comissao,"esquerda, direita = 0, len(lista) - 1
+meio = (esquerda + direita) // 2
+return meio",3,82,0,0,0,0,0,1,0,0,2,0,0,1,0,3,0,0,3,0,0,0,2,0.667,0.0
+busca_binaria_comissao_v5,busca_binaria,comissao,"esquerda, direita = 0, len(lista) - 1
+resultado = -1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] >= alvo:
+        resultado = meio
+        direita = meio - 1
+    else:
+        esquerda = meio + 1
+return resultado",10,251,0,1,1,1,1,1,0,0,6,0,1,1,0,5,2,0,6,0,0,2,4,0.6,0.1
+busca_binaria_comissao_v6,busca_binaria,comissao,"contador = 0
+for item in lista:
+    if item < alvo:
+        contador += 1
+return contador",5,89,1,0,1,1,0,1,0,0,1,1,0,0,0,0,1,0,2,0,0,2,2,0.4,0.0
+busca_binaria_computacao_v1,busca_binaria,computacao,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = esquerda + direita // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,251,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,3,6,0.455,0.182
+busca_binaria_computacao_v2,busca_binaria,computacao,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        direita = meio + 1
+    else:
+        esquerda = meio - 1
+return -1",11,253,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,3,6,0.455,0.182
+busca_binaria_computacao_v3,busca_binaria,computacao,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] > alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,253,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,3,6,0.455,0.182
+busca_binaria_computacao_v4,busca_binaria,computacao,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return esquerda
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,257,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,3,6,0.455,0.182
+busca_binaria_computacao_v5,busca_binaria,computacao,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio
+    else:
+        direita = meio - 1
+return -1",11,249,0,1,1,2,2,2,0,0,5,0,2,1,0,4,3,0,5,0,0,3,6,0.455,0.182
+busca_binaria_computacao_v6,busca_binaria,computacao,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita * 2) // 3
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,257,0,1,1,2,2,2,0,0,5,0,2,1,0,6,3,0,7,0,0,3,6,0.455,0.182
+busca_binaria_controle_v1,busca_binaria,controle,"esquerda = 0
+direita = len(lista) - 1
+while esquerda >= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,253,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,3,6,0.455,0.182
+busca_binaria_controle_v2,busca_binaria,controle,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] < alvo:
+        esquerda = meio + 1
+    elif lista[meio] > alvo:
+        direita = meio - 1
+    else:
+        esquerda = meio + 1
+return -1",11,260,0,1,1,2,2,1,0,0,6,0,2,1,0,6,3,0,7,0,0,3,6,0.545,0.182
+busca_binaria_controle_v3,busca_binaria,controle,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    break
+return -1",8,169,0,1,1,1,0,2,1,0,3,0,1,1,0,3,2,0,4,0,0,2,4,0.375,0.125
+busca_binaria_controle_v4,busca_binaria,controle,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        continue
+    else:
+        direita = meio - 1
+return -1",11,242,0,1,1,2,2,2,0,1,4,0,2,1,0,4,3,0,5,0,0,3,6,0.364,0.182
+busca_binaria_controle_v5,busca_binaria,controle,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita and esquerda == 0:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,271,0,1,1,2,2,2,0,0,5,0,2,1,0,5,4,1,7,0,0,3,6,0.455,0.182
+busca_binaria_controle_v6,busca_binaria,controle,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] < alvo:
+        esquerda = meio + 1
+    elif lista[meio] > alvo:
+        direita = meio - 1
+    elif False:
+        return meio
+return -1",11,258,0,1,1,3,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,4,6,0.455,0.182
+busca_binaria_dados_v1,busca_binaria,dados,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,253,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,3,6,0.455,0.182
+busca_binaria_dados_v2,busca_binaria,dados,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita + 1:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,257,0,1,1,2,2,2,0,0,5,0,2,1,0,6,3,0,7,0,0,3,6,0.455,0.182
+busca_binaria_dados_v3,busca_binaria,dados,"primeiro = lista[0]
+esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",12,273,0,1,1,2,2,2,0,0,6,0,3,1,0,5,3,0,7,0,0,3,7,0.5,0.25
+busca_binaria_dados_v4,busca_binaria,dados,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if str(lista[meio]) == str(alvo):
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,263,0,1,1,2,2,2,0,0,5,0,2,3,0,5,3,0,6,0,0,3,8,0.455,0.182
+busca_binaria_dados_v5,busca_binaria,dados,"if len(lista) > 0 and lista[len(lista) - 1 + 1 - 1] == alvo:
+    pass
+esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",13,323,0,1,1,3,2,2,0,0,5,0,3,3,0,8,5,1,10,0,0,3,12,0.385,0.231
+busca_binaria_dados_v6,busca_binaria,dados,"esquerda = 0
+direita = len(lista)
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,249,0,1,1,2,2,2,0,0,5,0,2,1,0,4,3,0,5,0,0,3,6,0.455,0.182
+busca_binaria_desempenho_v1,busca_binaria,desempenho,"def busca(esquerda, direita):
+    if esquerda > direita:
+        return -1
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        return busca(meio + 1, direita)
+    else:
+        return busca(esquerda, meio - 1)
+return busca(0, len(lista) - 1)",11,311,0,0,0,3,2,5,0,0,1,0,2,4,3,5,3,0,6,0,0,2,3,0.091,0.182
+busca_binaria_desempenho_v2,busca_binaria,desempenho,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    if alvo in lista:
+        pass
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",13,288,0,1,1,3,2,2,0,0,5,0,2,1,0,5,4,0,6,0,0,3,8,0.385,0.154
+busca_binaria_desempenho_v3,busca_binaria,desempenho,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    lista_ordenada = sorted(lista)
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",12,288,0,1,1,2,2,2,0,0,6,0,2,2,0,5,3,0,6,0,0,3,8,0.5,0.167
+busca_binaria_desempenho_v4,busca_binaria,desempenho,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    copia = lista[:]
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",12,274,0,1,1,2,2,2,0,0,6,0,3,1,0,5,3,0,6,0,0,3,7,0.5,0.25
+busca_binaria_desempenho_v5,busca_binaria,desempenho,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    for _ in range(len(lista)):
+        pass
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",13,298,1,1,2,2,2,2,0,0,5,0,2,3,0,5,3,0,6,0,0,3,9,0.385,0.154
+busca_binaria_desempenho_v6,busca_binaria,desempenho,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    _ = len(lista)
+    _ = len(lista)
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",13,291,0,1,1,2,2,2,0,0,7,0,2,3,0,5,3,0,6,0,0,3,10,0.538,0.154
+busca_binaria_excesso_v1,busca_binaria,excesso,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    meio_extra = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",12,296,0,1,1,2,2,2,0,0,6,0,2,1,0,7,3,0,7,0,0,3,6,0.5,0.167
+busca_binaria_excesso_v2,busca_binaria,excesso,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        if lista[meio] == alvo:
+            return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",12,289,0,1,1,3,2,2,0,0,5,0,3,1,0,5,4,0,6,0,0,3,8,0.417,0.25
+busca_binaria_excesso_v3,busca_binaria,excesso,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+    esquerda = esquerda
+    direita = direita
+return -1",13,299,0,1,1,2,2,2,0,0,7,0,2,1,0,5,3,0,6,0,0,3,6,0.538,0.154
+busca_binaria_excesso_v4,busca_binaria,excesso,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if False:
+        return -999
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",13,287,0,1,1,3,2,3,0,0,5,0,2,1,0,5,3,0,7,0,0,3,6,0.385,0.154
+busca_binaria_excesso_v5,busca_binaria,excesso,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        for _ in range(0):
+            pass
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",13,297,1,1,2,2,2,2,0,0,5,0,2,2,0,5,3,0,7,0,0,3,7,0.385,0.154
+busca_binaria_excesso_v6,busca_binaria,excesso,"esquerda = 0
+direita = len(lista) - 1
+while esquerda <= direita:
+    amplitude = direita - esquerda
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",12,288,0,1,1,2,2,2,0,0,6,0,2,1,0,6,3,0,6,0,0,3,6,0.5,0.167
+busca_binaria_inicializacao_v1,busca_binaria,inicializacao,"while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",9,215,0,1,1,2,2,2,0,0,3,0,2,0,0,4,3,0,4,0,0,3,8,0.333,0.222
+busca_binaria_inicializacao_v2,busca_binaria,inicializacao,"esquerda = None
+direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,256,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,5,0,0,3,6,0.455,0.182
+busca_binaria_inicializacao_v3,busca_binaria,inicializacao,"esquerda = 0
+direita = str(len(lista) - 1)
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,258,0,1,1,2,2,2,0,0,5,0,2,2,0,5,3,0,6,0,0,3,7,0.455,0.182
+busca_binaria_inicializacao_v4,busca_binaria,inicializacao,"esquerda = 0
+while esquerda <= direita:
+    direita = len(lista) - 1
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,257,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,3,7,0.455,0.182
+busca_binaria_inicializacao_v5,busca_binaria,inicializacao,"esquerda = 0
+ultimo = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",11,252,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,3,8,0.455,0.182
+busca_binaria_inicializacao_v6,busca_binaria,inicializacao,"direita = len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+esquerda = 0
+return -1",11,253,0,1,1,2,2,2,0,0,5,0,2,1,0,5,3,0,6,0,0,3,8,0.455,0.182
+busca_linear_comissao_v1,busca_linear,comissao,"for i in range(len(lista)):
+    if lista[i] == alvo:
+        return True
+return False",4,85,1,0,1,1,0,2,0,0,0,0,1,2,0,0,1,0,0,0,0,2,5,0.0,0.25
+busca_linear_comissao_v2,busca_linear,comissao,"contador = 0
+for i in range(len(lista)):
+    if lista[i] == alvo:
+        contador += 1
+return contador",5,103,1,0,1,1,0,1,0,0,1,1,1,2,0,0,1,0,2,0,0,2,5,0.4,0.2
+busca_linear_comissao_v3,busca_linear,comissao,"for i in range(len(lista) - 1, -1, -1):
+    if lista[i] == alvo:
+        return i
+return -1",4,91,1,0,1,1,0,2,0,0,0,0,1,2,0,1,1,0,4,0,0,2,5,0.0,0.25
+busca_linear_comissao_v4,busca_linear,comissao,"melhor_indice = 0
+menor_diferenca = abs(lista[0] - alvo) if lista else 0
+for i in range(len(lista)):
+    diferenca = abs(lista[i] - alvo)
+    if diferenca < menor_diferenca:
+        menor_diferenca = diferenca
+        melhor_indice = i
+return melhor_indice",8,256,1,0,1,1,0,1,0,0,5,0,2,4,0,2,1,0,3,0,0,2,10,0.625,0.25
+busca_linear_comissao_v5,busca_linear,comissao,"for i in range(len(lista) - 1):
+    if lista[i] == lista[i + 1]:
+        return i
+return -1",4,91,1,0,1,1,0,2,0,0,0,0,2,2,0,2,1,0,3,0,0,2,5,0.0,0.5
+busca_linear_comissao_v6,busca_linear,comissao,"esquerda, direita = 0, len(lista) - 1
+while esquerda <= direita:
+    meio = (esquerda + direita) // 2
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        esquerda = meio + 1
+    else:
+        direita = meio - 1
+return -1",10,253,0,1,1,2,2,2,0,0,4,0,2,1,0,5,3,0,6,0,0,3,6,0.4,0.2
+busca_linear_computacao_v1,busca_linear,computacao,"for i in range(len(lista)):
+    if lista[i] != alvo:
+        continue
+    return i
+return -1",5,92,1,0,1,1,0,2,0,1,0,0,1,2,0,0,1,0,1,0,0,2,5,0.0,0.2
+busca_linear_computacao_v2,busca_linear,computacao,"for i in range(len(lista)):
+    if i == alvo:
+        return i
+return -1",4,72,1,0,1,1,0,2,0,0,0,0,0,2,0,0,1,0,1,0,0,2,4,0.0,0.0
+busca_linear_computacao_v3,busca_linear,computacao,"for i in range(len(lista)):
+    if lista[i] == alvo:
+        return lista[i]
+return -1",4,86,1,0,1,1,0,2,0,0,0,0,2,2,0,0,1,0,1,0,0,2,6,0.0,0.5
+busca_linear_computacao_v4,busca_linear,computacao,"for i in range(len(lista)):
+    if alvo in lista:
+        return i
+return -1",4,76,1,0,1,1,0,2,0,0,0,0,0,2,0,0,1,0,1,0,0,2,5,0.0,0.0
+busca_linear_computacao_v5,busca_linear,computacao,"for i in range(len(lista)):
+    if lista[i] > alvo:
+        return i
+return -1",4,78,1,0,1,1,0,2,0,0,0,0,1,2,0,0,1,0,1,0,0,2,5,0.0,0.25
+busca_linear_computacao_v6,busca_linear,computacao,"for i in range(len(lista)):
+    if lista[i] == alvo:
+        return i - 1
+return -1",4,83,1,0,1,1,0,2,0,0,0,0,1,2,0,1,1,0,2,0,0,2,5,0.0,0.25
+busca_linear_controle_v1,busca_linear,controle,"i = 0
+while i >= len(lista):
+    if lista[i] == alvo:
+        return i
+    i += 1
+return -1",6,91,0,1,1,1,0,2,0,0,1,1,1,1,0,0,2,0,3,0,0,2,4,0.333,0.167
+busca_linear_controle_v2,busca_linear,controle,"i = 0
+while i < len(lista):
+    if lista[i] == alvo:
+        return i
+return -1",5,79,0,1,1,1,0,2,0,0,1,0,1,1,0,0,2,0,2,0,0,2,4,0.2,0.2
+busca_linear_controle_v3,busca_linear,controle,"for i in range(len(lista)):
+    if lista[i] != alvo:
+        return i
+return -1",4,79,1,0,1,1,0,2,0,0,0,0,1,2,0,0,1,0,1,0,0,2,5,0.0,0.25
+busca_linear_controle_v4,busca_linear,controle,"for i in range(len(lista)):
+    if i > 0:
+        break
+    if lista[i] == alvo:
+        return i
+return -1",6,107,1,0,1,2,0,2,1,0,0,0,1,2,0,0,2,0,2,0,0,2,5,0.0,0.167
+busca_linear_controle_v5,busca_linear,controle,"for i in range(len(lista)):
+    if lista[i] == alvo:
+        continue
+return -1",4,79,1,0,1,1,0,1,0,1,0,0,1,2,0,0,1,0,1,0,0,2,5,0.0,0.25
+busca_linear_controle_v6,busca_linear,controle,"for i in range(len(lista)):
+    if lista[i] == alvo and alvo != alvo:
+        return i
+return -1",4,96,1,0,1,1,0,2,0,0,0,0,1,2,0,0,2,1,1,0,0,2,7,0.0,0.25
+busca_linear_dados_v1,busca_linear,dados,"for i in range(len(lista) + 1):
+    if lista[i] == alvo:
+        return i
+return -1",4,83,1,0,1,1,0,2,0,0,0,0,1,2,0,1,1,0,2,0,0,2,5,0.0,0.25
+busca_linear_dados_v2,busca_linear,dados,"for i in range(len(lista)):
+    if lista[i + 1] == alvo:
+        return i
+return -1",4,83,1,0,1,1,0,2,0,0,0,0,1,2,0,1,1,0,2,0,0,2,5,0.0,0.25
+busca_linear_dados_v3,busca_linear,dados,"for i in range(len(lista) if lista is not None else 0):
+    if lista[i] == alvo:
+        return i
+return -1 if lista is not None else None",4,138,1,0,1,1,0,2,0,0,0,0,1,2,0,0,3,0,2,0,2,2,7,0.0,0.25
+busca_linear_dados_v4,busca_linear,dados,"for i in range(len(lista)):
+    if str(lista[i]) == alvo:
+        return i
+return -1",4,84,1,0,1,1,0,2,0,0,0,0,1,3,0,0,1,0,1,0,0,2,6,0.0,0.25
+busca_linear_dados_v5,busca_linear,dados,"primeiro = lista[0]
+for i in range(len(lista)):
+    if lista[i] == alvo:
+        return i
+return -1",5,99,1,0,1,1,0,2,0,0,1,0,2,2,0,0,1,0,2,0,0,2,6,0.2,0.4
+busca_linear_dados_v6,busca_linear,dados,"if lista[-1] == alvo:
+    return len(lista) - 1
+for i in range(len(lista)):
+    if lista[i] == alvo:
+        return i
+return -1",6,127,1,0,1,2,0,3,0,0,0,0,2,3,0,1,2,0,3,0,0,2,9,0.0,0.333
+busca_linear_desempenho_v1,busca_linear,desempenho,"for i in range(len(lista)):
+    for _ in range(len(lista)):
+        if lista[i] == alvo:
+            return i
+return -1",5,119,2,0,2,1,0,2,0,0,0,0,1,4,0,0,1,0,1,0,0,3,8,0.0,0.2
+busca_linear_desempenho_v2,busca_linear,desempenho,"posicao = -1
+for i in range(len(lista)):
+    if lista[i] == alvo:
+        posicao = i
+return posicao",5,100,1,0,1,1,0,1,0,0,2,0,1,2,0,0,1,0,1,0,0,2,5,0.4,0.2
+busca_linear_desempenho_v3,busca_linear,desempenho,"for i in range(len(lista)):
+    if alvo in lista and lista[i] == alvo:
+        return i
+return -1",4,97,1,0,1,1,0,2,0,0,0,0,1,2,0,0,2,1,1,0,0,2,7,0.0,0.25
+busca_linear_desempenho_v4,busca_linear,desempenho,"for i in range(len(lista)):
+    lista_temp = list(lista)
+    if lista_temp[i] == alvo:
+        return i
+return -1",5,113,1,0,1,1,0,2,0,0,1,0,1,3,0,0,1,0,1,0,0,2,6,0.2,0.2
+busca_linear_desempenho_v5,busca_linear,desempenho,"for i in range(len(lista)):
+    sorted(lista)
+    if lista[i] == alvo:
+        return i
+return -1",5,97,1,0,1,1,0,2,0,0,0,0,1,3,0,0,1,0,1,0,0,2,7,0.0,0.2
+busca_linear_desempenho_v6,busca_linear,desempenho,"def busca_rec(indice):
+    if indice >= len(lista):
+        return -1
+    if lista[indice] == alvo:
+        return indice
+    return busca_rec(indice + 1)
+return busca_rec(0)",7,174,0,0,0,2,0,4,0,0,0,0,1,3,2,1,2,0,3,0,0,1,1,0.0,0.143
+busca_linear_excesso_v1,busca_linear,excesso,"for i in range(len(lista)):
+    if lista[i] == alvo:
+        if lista[i] == alvo:
+            return i
+return -1",5,112,1,0,1,2,0,2,0,0,0,0,2,2,0,0,2,0,1,0,0,3,7,0.0,0.4
+busca_linear_excesso_v2,busca_linear,excesso,"for i in range(len(lista)):
+    diferenca = abs(i - 0)
+    if lista[i] == alvo:
+        return i
+return -1",5,106,1,0,1,1,0,2,0,0,1,0,1,3,0,1,1,0,2,0,0,2,6,0.2,0.2
+busca_linear_excesso_v3,busca_linear,excesso,"for i in range(len(lista)):
+    i = i
+    if lista[i] == alvo:
+        return i
+return -1",5,89,1,0,1,1,0,2,0,0,1,0,1,2,0,0,1,0,1,0,0,2,5,0.2,0.2
+busca_linear_excesso_v4,busca_linear,excesso,"for i in range(len(lista)):
+    if lista[i] == alvo:
+        return i
+    if False:
+        return -999
+return -1",6,113,1,0,1,2,0,3,0,0,0,0,1,2,0,0,1,0,2,0,0,2,5,0.0,0.167
+busca_linear_excesso_v5,busca_linear,excesso,"for i in range(len(lista)):
+    alvo_dup = alvo + 0 if isinstance(alvo, (int, float)) else alvo
+    if lista[i] == alvo:
+        return i
+return -1",5,147,1,0,1,1,0,2,0,0,1,0,1,3,0,1,1,0,2,0,0,2,11,0.2,0.2
+busca_linear_excesso_v6,busca_linear,excesso,"for i in range(len(lista)):
+    if lista[i] == alvo:
+        return i
+        print(""nunca executado"")
+return -1",5,112,1,0,1,1,0,2,0,0,0,0,1,3,0,0,1,0,1,1,0,2,6,0.0,0.2
+busca_linear_inicializacao_v1,busca_linear,inicializacao,"while i < len(lista):
+    if lista[i] == alvo:
+        return i
+    i += 1
+return -1",5,84,0,1,1,1,0,2,0,0,0,1,1,1,0,0,2,0,2,0,0,2,8,0.2,0.2
+busca_linear_inicializacao_v2,busca_linear,inicializacao,"i = None
+while i < len(lista):
+    if lista[i] == alvo:
+        return i
+    i += 1
+return -1",6,93,0,1,1,1,0,2,0,0,1,1,1,1,0,0,2,0,2,0,0,2,4,0.333,0.167
+busca_linear_inicializacao_v3,busca_linear,inicializacao,"comparacoes = ''
+for i in range(len(lista)):
+    comparacoes += 1
+    if lista[i] == alvo:
+        return i
+return -1",6,117,1,0,1,1,0,2,0,0,1,1,1,2,0,0,1,0,2,1,0,2,5,0.333,0.167
+busca_linear_inicializacao_v4,busca_linear,inicializacao,"for i in range(len(lista)):
+    posicao_encontrada = None
+    if lista[i] == alvo:
+        posicao_encontrada = i
+return posicao_encontrada if posicao_encontrada is not None else -1",5,181,1,0,1,1,0,1,0,0,2,0,1,2,0,0,2,0,1,0,1,2,5,0.4,0.2
+busca_linear_inicializacao_v5,busca_linear,inicializacao,"indice = 0
+while i < len(lista):
+    if lista[i] == alvo:
+        return i
+    i += 1
+return -1",6,95,0,1,1,1,0,2,0,0,1,1,1,1,0,0,2,0,3,0,0,2,8,0.333,0.167
+busca_linear_inicializacao_v6,busca_linear,inicializacao,"while i < len(lista):
+    if lista[i] == alvo:
+        return i
+    i += 1
+i = 0
+return -1",6,90,0,1,1,1,0,2,0,0,1,1,1,1,0,0,2,0,3,0,0,2,8,0.333,0.167
+calcular_media_comissao_v1,calcular_media,comissao,"soma = 0
+for num in numeros:
+    soma += num
+return soma",4,56,1,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,1,0.5,0.0
+calcular_media_comissao_v2,calcular_media,comissao,"soma = 0
+for num in numeros:
+    soma += num
+return max(numeros) if numeros else 0",4,82,1,0,1,0,0,1,0,0,1,1,0,1,0,0,0,0,2,0,0,1,4,0.5,0.0
+calcular_media_comissao_v3,calcular_media,comissao,"ordenado = sorted(numeros)
+meio = len(ordenado) // 2
+return ordenado[meio] if ordenado else 0",3,93,0,0,0,0,0,1,0,0,2,0,1,2,0,1,0,0,2,0,0,0,3,0.667,0.333
+calcular_media_comissao_v4,calcular_media,comissao,"soma = 0
+positivos = 0
+for num in numeros:
+    soma += num
+    if num > 0:
+        positivos += 1
+return soma / positivos if positivos else 0",7,141,1,0,1,1,0,1,0,0,2,2,0,0,0,1,1,0,5,0,0,2,1,0.571,0.0
+calcular_media_comissao_v5,calcular_media,comissao,"produto = 1
+for num in numeros:
+    produto *= num
+return produto ** (1 / len(numeros)) if numeros else 0",4,105,1,0,1,0,0,1,0,0,1,1,0,1,0,2,0,0,3,0,0,1,4,0.5,0.0
+calcular_media_comissao_v6,calcular_media,comissao,"contador = 0
+for num in numeros:
+    contador += 1
+return contador / len(numeros) if numeros else 0",4,99,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,3,0,0,1,4,0.5,0.0
+calcular_media_computacao_v1,calcular_media,computacao,"soma = 0
+for num in numeros:
+    soma -= num
+return soma / len(numeros) if numeros else 0",4,89,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,1,4,0.5,0.0
+calcular_media_computacao_v2,calcular_media,computacao,"soma = 0
+for num in numeros:
+    soma += num
+return soma // len(numeros) if numeros else 0",4,90,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,1,4,0.5,0.0
+calcular_media_computacao_v3,calcular_media,computacao,"soma = 0
+for num in numeros:
+    soma += num * 2
+return soma / len(numeros) if numeros else 0",4,93,1,0,1,0,0,1,0,0,1,1,0,1,0,2,0,0,3,0,0,1,4,0.5,0.0
+calcular_media_computacao_v4,calcular_media,computacao,"soma = 0
+for num in numeros:
+    soma += num
+return soma / (len(numeros) + 1) if numeros else 0",4,95,1,0,1,0,0,1,0,0,1,1,0,1,0,2,0,0,3,0,0,1,4,0.5,0.0
+calcular_media_computacao_v5,calcular_media,computacao,"soma = 0
+for num in numeros:
+    soma = num
+return soma / len(numeros) if numeros else 0",4,88,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,4,0.5,0.0
+calcular_media_computacao_v6,calcular_media,computacao,"soma = 0
+for num in numeros:
+    soma += num ** 2
+return soma / len(numeros) if numeros else 0",4,94,1,0,1,0,0,1,0,0,1,1,0,1,0,2,0,0,3,0,0,1,4,0.5,0.0
+calcular_media_controle_v1,calcular_media,controle,"soma = 0
+i = 0
+while i < len(numeros):
+    soma += numeros[i]
+return soma / len(numeros) if numeros else 0",5,106,0,1,1,0,0,1,0,0,2,1,1,2,0,1,1,0,3,0,0,1,6,0.6,0.2
+calcular_media_controle_v2,calcular_media,controle,"soma = 0
+i = 0
+while i > len(numeros):
+    soma += numeros[i]
+    i += 1
+return soma / len(numeros) if numeros else 0",6,117,0,1,1,0,0,1,0,0,2,2,1,2,0,1,1,0,4,0,0,1,6,0.667,0.167
+calcular_media_controle_v3,calcular_media,controle,"soma = 0
+for num in numeros:
+    if num > 0 or num < 0:
+        soma += num
+    else:
+        soma += 0
+return soma / len(numeros) if numeros else 0",7,148,1,0,1,1,1,1,0,0,1,2,0,1,0,1,2,1,5,0,0,2,4,0.429,0.0
+calcular_media_controle_v4,calcular_media,controle,"soma = 0
+for num in numeros:
+    if num != num:
+        soma += num
+return soma / len(numeros) if numeros else 0",5,112,1,0,1,1,0,1,0,0,1,1,0,1,0,1,1,0,2,0,0,2,4,0.4,0.0
+calcular_media_controle_v5,calcular_media,controle,"soma = 0
+for num in numeros:
+    if num >= 0:
+        continue
+    soma += num
+return soma / len(numeros) if numeros else 0",6,123,1,0,1,1,0,1,0,1,1,1,0,1,0,1,1,0,3,0,0,2,4,0.333,0.0
+calcular_media_controle_v6,calcular_media,controle,"soma = 0
+for num in numeros:
+    if num == num and num > -999999:
+        pass
+    soma += num
+return soma / len(numeros) if numeros else 0",6,139,1,0,1,1,0,1,0,0,1,1,0,1,0,1,2,1,3,0,0,2,4,0.333,0.0
+calcular_media_dados_v1,calcular_media,dados,"soma = 0
+for num in numeros:
+    soma += num
+return soma / len(numeros)",4,71,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,1,0,0,1,3,0.5,0.0
+calcular_media_dados_v2,calcular_media,dados,"soma = 0
+for i in range(len(numeros) + 1):
+    soma += numeros[i]
+return soma / len(numeros) if numeros else 0",4,110,1,0,1,0,0,1,0,0,1,1,1,3,0,2,0,0,3,0,0,1,7,0.5,0.25
+calcular_media_dados_v3,calcular_media,dados,"soma = 0
+for num in numeros:
+    soma += num
+return soma / len(numeros) if numeros is not None else 0",4,101,1,0,1,0,0,1,0,0,1,1,0,1,0,1,1,0,2,0,1,1,4,0.5,0.0
+calcular_media_dados_v4,calcular_media,dados,"soma = 0
+for num in numeros:
+    soma = soma + num
+return soma / len(numeros) if numeros else 0",4,95,1,0,1,0,0,1,0,0,2,0,0,1,0,2,0,0,2,0,0,1,4,0.5,0.0
+calcular_media_dados_v5,calcular_media,dados,"primeiro = numeros[0]
+soma = 0
+for num in numeros:
+    soma += num
+return soma / len(numeros) if numeros else 0",5,111,1,0,1,0,0,1,0,0,2,1,1,1,0,1,0,0,3,0,0,1,5,0.6,0.2
+calcular_media_dados_v6,calcular_media,dados,"soma = 0
+for num in numeros:
+    soma += num
+ultimo = numeros[-1]
+return (soma + ultimo - ultimo) / len(numeros)",5,112,1,0,1,0,0,1,0,0,2,1,1,1,0,3,0,0,2,0,0,1,4,0.6,0.2
+calcular_media_desempenho_v1,calcular_media,desempenho,"soma = 0
+for num in numeros:
+    soma = sum(numeros[:numeros.index(num) + 1])
+return soma / len(numeros) if numeros else 0",4,122,1,0,1,0,0,1,0,0,2,0,1,3,0,2,0,0,3,0,0,1,7,0.5,0.25
+calcular_media_desempenho_v2,calcular_media,desempenho,"soma = 0
+for num in numeros:
+    for _ in numeros:
+        pass
+    soma += num
+return soma / len(numeros) if numeros else 0",6,124,2,0,2,0,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,2,5,0.333,0.0
+calcular_media_desempenho_v3,calcular_media,desempenho,"soma = 0
+for num in numeros:
+    soma = sum(numeros)
+return soma / len(numeros) if numeros else 0",4,97,1,0,1,0,0,1,0,0,2,0,0,2,0,1,0,0,2,0,0,1,6,0.5,0.0
+calcular_media_desempenho_v4,calcular_media,desempenho,"soma = 0
+for num in numeros:
+    if num in numeros:
+        soma += num
+return soma / len(numeros) if numeros else 0",5,116,1,0,1,1,0,1,0,0,1,1,0,1,0,1,1,0,2,0,0,2,5,0.4,0.0
+calcular_media_desempenho_v5,calcular_media,desempenho,"soma = 0
+for num in numeros:
+    copia = list(numeros)
+    soma += num
+return soma / len(numeros) if numeros else 0",5,115,1,0,1,0,0,1,0,0,2,1,0,2,0,1,0,0,2,0,0,1,6,0.6,0.0
+calcular_media_desempenho_v6,calcular_media,desempenho,"soma = 0
+for num in numeros:
+    numeros_ordenados = sorted(numeros)
+    soma += num
+return soma / len(numeros) if numeros else 0",5,129,1,0,1,0,0,1,0,0,2,1,0,2,0,1,0,0,2,0,0,1,6,0.6,0.0
+calcular_media_excesso_v1,calcular_media,excesso,"soma = 0
+for num in numeros:
+    soma += num
+soma_extra = sum(numeros)
+return soma / len(numeros) if numeros else 0",5,115,1,0,1,0,0,1,0,0,2,1,0,2,0,1,0,0,2,0,0,1,6,0.6,0.0
+calcular_media_excesso_v2,calcular_media,excesso,"soma = 0
+for num in numeros:
+    soma += num
+    soma += 0
+return soma / len(numeros) if numeros else 0",5,103,1,0,1,0,0,1,0,0,1,2,0,1,0,1,0,0,3,0,0,1,4,0.6,0.0
+calcular_media_excesso_v3,calcular_media,excesso,"soma = 0
+for num in numeros:
+    if numeros:
+        if numeros:
+            soma += num
+return soma / len(numeros) if numeros else 0",6,133,1,0,1,2,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,3,6,0.333,0.0
+calcular_media_excesso_v4,calcular_media,excesso,"soma = 0
+for num in numeros:
+    soma += num
+    soma = soma
+return soma / len(numeros) if numeros else 0",5,105,1,0,1,0,0,1,0,0,2,1,0,1,0,1,0,0,2,0,0,1,4,0.6,0.0
+calcular_media_excesso_v5,calcular_media,excesso,"soma = 0
+for num in numeros:
+    soma += num
+for num in numeros:
+    pass
+return soma / len(numeros) if numeros else 0",6,118,2,0,2,0,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,1,5,0.333,0.0
+calcular_media_excesso_v6,calcular_media,excesso,"soma = 0
+for num in numeros:
+    soma += num
+return soma / len(numeros) if numeros else 0
+soma = -1",5,99,1,0,1,0,0,1,0,0,2,1,0,1,0,1,0,0,3,0,0,1,4,0.6,0.0
+calcular_media_inicializacao_v1,calcular_media,inicializacao,"for num in numeros:
+    soma += num
+return soma / len(numeros) if numeros else 0",3,80,1,0,1,0,0,1,0,0,0,1,0,1,0,1,0,0,1,0,0,1,5,0.333,0.0
+calcular_media_inicializacao_v2,calcular_media,inicializacao,"soma = None
+for num in numeros:
+    soma += num
+return soma / len(numeros) if numeros else 0",4,92,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,1,0,0,1,4,0.5,0.0
+calcular_media_inicializacao_v3,calcular_media,inicializacao,"soma = ''
+for num in numeros:
+    soma += num
+return soma / len(numeros) if numeros else 0",4,90,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,1,1,0,1,4,0.5,0.0
+calcular_media_inicializacao_v4,calcular_media,inicializacao,"for num in numeros:
+    soma = 0
+    soma += num
+return soma / len(numeros) if numeros else 0",4,93,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,1,4,0.5,0.0
+calcular_media_inicializacao_v5,calcular_media,inicializacao,"total = 0
+for num in numeros:
+    soma += num
+return soma / len(numeros) if numeros else 0",4,90,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,1,5,0.5,0.0
+calcular_media_inicializacao_v6,calcular_media,inicializacao,"for num in numeros:
+    soma += num
+soma = 0
+return soma / len(numeros) if numeros else 0",4,89,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,1,5,0.5,0.0
+contar_vogais_comissao_v1,contar_vogais,comissao,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char.isalpha() and char not in vogais:
+        contador += 1
+return contador",6,133,1,0,1,1,0,1,0,0,2,1,0,1,0,0,1,1,2,1,0,2,1,0.5,0.0
+contar_vogais_comissao_v2,contar_vogais,comissao,"vogais = 'aeiouAEIOU'
+encontradas = []
+for char in s:
+    if char in vogais:
+        encontradas.append(char)
+return encontradas",6,128,1,0,1,1,0,1,0,0,2,0,0,1,0,0,1,0,0,1,0,2,1,0.333,0.0
+contar_vogais_comissao_v3,contar_vogais,comissao,"contador = 0
+for char in s:
+    contador += 1
+return contador",4,61,1,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,2,0,0,1,1,0.5,0.0
+contar_vogais_comissao_v4,contar_vogais,comissao,"vogais = 'aeiou'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+return contador",6,105,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,1,0.5,0.0
+contar_vogais_comissao_v5,contar_vogais,comissao,"vogais = 'aeiouAEIOU'
+encontradas = set()
+for char in s:
+    if char in vogais:
+        encontradas.add(char.lower())
+return len(encontradas)",6,141,1,0,1,1,0,1,0,0,2,0,0,4,0,0,1,0,0,1,0,2,3,0.333,0.0
+contar_vogais_comissao_v6,contar_vogais,comissao,return len(s.split()),1,21,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0,0,0,0,0,0,2,0.0,0.0
+contar_vogais_computacao_v1,contar_vogais,computacao,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador -= 1
+return contador",6,110,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,1,0.5,0.0
+contar_vogais_computacao_v2,contar_vogais,computacao,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 2
+return contador",6,110,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,1,0.5,0.0
+contar_vogais_computacao_v3,contar_vogais,computacao,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador = 1
+return contador",6,109,1,0,1,1,0,1,0,0,3,0,0,0,0,0,1,0,2,1,0,2,1,0.5,0.0
+contar_vogais_computacao_v4,contar_vogais,computacao,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais[1:]:
+        contador += 1
+return contador",6,114,1,0,1,1,0,1,0,0,2,1,1,0,0,0,1,0,3,1,0,2,1,0.5,0.167
+contar_vogais_computacao_v5,contar_vogais,computacao,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char not in vogais:
+        contador += 1
+return contador",6,114,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,1,0.5,0.0
+contar_vogais_computacao_v6,contar_vogais,computacao,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char.isalpha():
+        contador += 1
+return contador",6,110,1,0,1,1,0,1,0,0,2,1,0,1,0,0,0,0,2,1,0,2,1,0.5,0.0
+contar_vogais_controle_v1,contar_vogais,controle,"vogais = 'aeiouAEIOU'
+contador = 0
+i = 0
+while i < len(s):
+    if s[i] in vogais:
+        contador += 1
+return contador",7,119,0,1,1,1,0,1,0,0,3,1,1,1,0,0,2,0,3,1,0,2,3,0.571,0.143
+contar_vogais_controle_v2,contar_vogais,controle,"vogais = 'aeiouAEIOU'
+contador = 0
+i = 0
+while i > len(s):
+    if s[i] in vogais:
+        contador += 1
+    i += 1
+return contador",8,130,0,1,1,1,0,1,0,0,3,2,1,1,0,0,2,0,4,1,0,2,3,0.625,0.125
+contar_vogais_controle_v3,contar_vogais,controle,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char.isupper():
+        continue
+    if char in vogais:
+        contador += 1
+return contador",8,150,1,0,1,2,0,1,0,1,2,1,0,1,0,0,1,0,2,1,0,2,1,0.375,0.0
+contar_vogais_controle_v4,contar_vogais,controle,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+    break
+return contador",7,120,1,0,1,1,0,1,1,0,2,1,0,0,0,0,1,0,2,1,0,2,1,0.429,0.0
+contar_vogais_controle_v5,contar_vogais,controle,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        pass
+    else:
+        contador += 1
+return contador",8,133,1,0,1,1,1,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,1,0.375,0.0
+contar_vogais_controle_v6,contar_vogais,controle,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais and char.isupper():
+        contador += 1
+return contador",6,129,1,0,1,1,0,1,0,0,2,1,0,1,0,0,1,1,2,1,0,2,1,0.5,0.0
+contar_vogais_dados_v1,contar_vogais,dados,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+return contador",6,110,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,1,0.5,0.0
+contar_vogais_dados_v2,contar_vogais,dados,"vogais = 'aeiouAEIOU'
+contador = 0
+for i in range(len(s) + 1):
+    if s[i] in vogais:
+        contador += 1
+return contador",6,123,1,0,1,1,0,1,0,0,2,1,1,2,0,1,1,0,3,1,0,2,4,0.5,0.167
+contar_vogais_dados_v3,contar_vogais,dados,"primeiro = s[0]
+vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+return contador",7,126,1,0,1,1,0,1,0,0,3,1,1,0,0,0,1,0,3,1,0,2,2,0.571,0.143
+contar_vogais_dados_v4,contar_vogais,dados,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char.lower() in vogais.lower():
+        contador += 1
+return contador",6,126,1,0,1,1,0,1,0,0,2,1,0,2,0,0,1,0,2,1,0,2,1,0.5,0.0
+contar_vogais_dados_v5,contar_vogais,dados,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+return contador if s or s == '' else 0",6,133,1,0,1,1,0,1,0,0,2,1,0,0,0,0,2,1,3,2,0,2,3,0.5,0.0
+contar_vogais_dados_v6,contar_vogais,dados,"ultima_letra = s[-1]
+vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+return contador",7,131,1,0,1,1,0,1,0,0,3,1,1,0,0,0,1,0,3,1,0,2,2,0.571,0.143
+contar_vogais_desempenho_v1,contar_vogais,desempenho,"contador = 0
+for char in s:
+    for vogal in 'aeiouAEIOU':
+        if char == vogal:
+            contador += 1
+return contador",6,126,2,0,2,1,0,1,0,0,1,1,0,0,0,0,1,0,2,1,0,3,1,0.333,0.0
+contar_vogais_desempenho_v2,contar_vogais,desempenho,"contador = 0
+for char in s:
+    vogais = 'a' + 'e' + 'i' + 'o' + 'u' + 'A' + 'E' + 'I' + 'O' + 'U'
+    if char in vogais:
+        contador += 1
+return contador",6,159,1,0,1,1,0,1,0,0,2,1,0,0,0,9,1,0,2,10,0,2,1,0.5,0.0
+contar_vogais_desempenho_v3,contar_vogais,desempenho,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    letras = list(s)
+    if char in vogais:
+        contador += 1
+return contador",7,131,1,0,1,1,0,1,0,0,3,1,0,1,0,0,1,0,2,1,0,2,3,0.571,0.0
+contar_vogais_desempenho_v4,contar_vogais,desempenho,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        s.count(char)
+        contador += 1
+return contador",7,132,1,0,1,1,0,1,0,0,2,1,0,1,0,0,1,0,2,1,0,2,2,0.429,0.0
+contar_vogais_desempenho_v5,contar_vogais,desempenho,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    for _ in s:
+        pass
+    if char in vogais:
+        contador += 1
+return contador",8,139,2,0,2,1,0,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,2,0.375,0.0
+contar_vogais_desempenho_v6,contar_vogais,desempenho,"contador = 0
+for vogal in 'aeiouAEIOU':
+    contador += s.count(vogal)
+return contador",4,86,1,0,1,0,0,1,0,0,1,1,0,1,0,0,0,0,1,1,0,1,1,0.5,0.0
+contar_vogais_excesso_v1,contar_vogais,excesso,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+        if char in vogais:
+            pass
+return contador",8,154,1,0,1,2,0,1,0,0,2,1,0,0,0,0,2,0,2,1,0,3,1,0.375,0.0
+contar_vogais_excesso_v2,contar_vogais,excesso,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    maiuscula = char.upper()
+    if char in vogais:
+        contador += 1
+return contador",7,139,1,0,1,1,0,1,0,0,3,1,0,1,0,0,1,0,2,1,0,2,1,0.571,0.0
+contar_vogais_excesso_v3,contar_vogais,excesso,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+        contador = contador
+return contador",7,138,1,0,1,1,0,1,0,0,3,1,0,0,0,0,1,0,2,1,0,2,1,0.571,0.0
+contar_vogais_excesso_v4,contar_vogais,excesso,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+for _ in '':
+    pass
+return contador",8,132,2,0,2,1,0,1,0,0,2,1,0,0,0,0,1,0,2,2,0,2,1,0.375,0.0
+contar_vogais_excesso_v5,contar_vogais,excesso,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+    if False:
+        contador = 0
+return contador",8,145,1,0,1,2,0,1,0,0,3,1,0,0,0,0,1,0,3,1,0,2,1,0.5,0.0
+contar_vogais_excesso_v6,contar_vogais,excesso,"vogais = 'aeiouAEIOU'
+contador = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+        contador += 0
+return contador",7,132,1,0,1,1,0,1,0,0,2,2,0,0,0,0,1,0,3,1,0,2,1,0.571,0.0
+contar_vogais_inicializacao_v1,contar_vogais,inicializacao,"vogais = 'aeiouAEIOU'
+for char in s:
+    if char in vogais:
+        contador += 1
+return contador",5,97,1,0,1,1,0,1,0,0,1,1,0,0,0,0,1,0,1,1,0,2,2,0.4,0.0
+contar_vogais_inicializacao_v2,contar_vogais,inicializacao,"vogais = 'aeiouAEIOU'
+contador = None
+for char in s:
+    if char in vogais:
+        contador += 1
+return contador",6,113,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,1,1,0,2,1,0.5,0.0
+contar_vogais_inicializacao_v3,contar_vogais,inicializacao,"vogais = 'aeiouAEIOU'
+contador = ''
+for char in s:
+    if char in vogais:
+        contador += 1
+return contador",6,111,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,1,2,0,2,1,0.5,0.0
+contar_vogais_inicializacao_v4,contar_vogais,inicializacao,"vogais = 'aeiouAEIOU'
+for char in s:
+    contador = 0
+    if char in vogais:
+        contador += 1
+return contador",6,114,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,1,0.5,0.0
+contar_vogais_inicializacao_v5,contar_vogais,inicializacao,"vogais = 'aeiouAEIOU'
+total = 0
+for char in s:
+    if char in vogais:
+        contador += 1
+return contador",6,107,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,2,0.5,0.0
+contar_vogais_inicializacao_v6,contar_vogais,inicializacao,"vogais = 'aeiouAEIOU'
+for char in s:
+    if char in vogais:
+        contador += 1
+contador = 0
+return contador",6,110,1,0,1,1,0,1,0,0,2,1,0,0,0,0,1,0,2,1,0,2,2,0.5,0.0
+fatorial_comissao_v1,fatorial,comissao,"resultado = 0
+for i in range(1, n + 1):
+    resultado += i
+return resultado",4,75,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,3,0,0,1,2,0.5,0.0
+fatorial_comissao_v2,fatorial,comissao,"resultado = n ** n
+return resultado",2,35,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,2,0.5,0.0
+fatorial_comissao_v3,fatorial,comissao,"resultado = 1
+for i in range(2, n + 1, 2):
+    resultado *= i
+return resultado",4,78,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,4,0,0,1,2,0.5,0.0
+fatorial_comissao_v4,fatorial,comissao,"resultado = 1
+for i in range(1, n):
+    resultado *= i
+return resultado",4,71,1,0,1,0,0,1,0,0,1,1,0,1,0,0,0,0,2,0,0,1,2,0.5,0.0
+fatorial_comissao_v5,fatorial,comissao,"fatores = []
+for i in range(1, n + 1):
+    fatores.append(i)
+return fatores",4,75,1,0,1,0,0,1,0,0,1,0,0,2,0,1,0,0,2,0,0,1,2,0.25,0.0
+fatorial_comissao_v6,fatorial,comissao,"if n <= 1:
+    return n
+a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+return a",6,83,1,0,1,1,0,2,0,0,2,0,0,1,0,1,1,0,3,0,0,1,4,0.333,0.0
+fatorial_computacao_v1,fatorial,computacao,"resultado = 1
+for i in range(1, n + 1):
+    resultado += i
+return resultado",4,75,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,3,0,0,1,2,0.5,0.0
+fatorial_computacao_v2,fatorial,computacao,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i * 2
+return resultado",4,79,1,0,1,0,0,1,0,0,1,1,0,1,0,2,0,0,4,0,0,1,2,0.5,0.0
+fatorial_computacao_v3,fatorial,computacao,"resultado = 1
+for i in range(1, n + 1):
+    resultado = i
+return resultado",4,74,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,3,0,0,1,2,0.5,0.0
+fatorial_computacao_v4,fatorial,computacao,"resultado = 1
+for i in range(1, n + 1):
+    resultado **= i
+return resultado",4,76,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,3,0,0,1,2,0.5,0.0
+fatorial_computacao_v5,fatorial,computacao,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= (i - 1)
+return resultado",4,81,1,0,1,0,0,1,0,0,1,1,0,1,0,2,0,0,4,0,0,1,2,0.5,0.0
+fatorial_computacao_v6,fatorial,computacao,"resultado = 1
+for i in range(1, n + 1):
+    resultado //= i
+return resultado",4,76,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,3,0,0,1,2,0.5,0.0
+fatorial_controle_v1,fatorial,controle,"resultado = 1
+i = 1
+while i <= n:
+    resultado *= i
+return resultado",5,69,0,1,1,0,0,1,0,0,2,1,0,0,0,0,1,0,2,0,0,1,1,0.6,0.0
+fatorial_controle_v2,fatorial,controle,"resultado = 1
+i = 1
+while i >= n:
+    resultado *= i
+    i += 1
+return resultado",6,80,0,1,1,0,0,1,0,0,2,2,0,0,0,0,1,0,3,0,0,1,1,0.667,0.0
+fatorial_controle_v3,fatorial,controle,"resultado = 1
+for i in range(1, n + 1):
+    if i % 2 == 0:
+        continue
+    resultado *= i
+return resultado",6,111,1,0,1,1,0,1,0,1,1,1,0,1,0,2,1,0,5,0,0,2,2,0.333,0.0
+fatorial_controle_v4,fatorial,controle,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+    break
+return resultado",5,85,1,0,1,0,0,1,1,0,1,1,0,1,0,1,0,0,3,0,0,1,2,0.4,0.0
+fatorial_controle_v5,fatorial,controle,"resultado = 1
+if n >= 0:
+    return resultado
+for i in range(1, n + 1):
+    resultado *= i
+return resultado",6,107,1,0,1,1,0,2,0,0,1,1,0,1,0,1,1,0,4,0,0,1,3,0.333,0.0
+fatorial_controle_v6,fatorial,controle,"resultado = 1
+i = 1
+while i <= n or i < 1:
+    resultado *= i
+    i += 1
+return resultado",6,89,0,1,1,0,0,1,0,0,2,2,0,0,0,0,2,1,4,0,0,1,1,0.667,0.0
+fatorial_dados_v1,fatorial,dados,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+return resultado",4,75,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,3,0,0,1,2,0.5,0.0
+fatorial_dados_v2,fatorial,dados,"resultado = 1
+for i in range(1, int(n) + 1) if isinstance(n, int) else range(1, n + 1):
+    resultado *= i
+return resultado",4,123,1,0,1,0,0,1,0,0,1,1,0,4,0,2,0,0,5,0,0,1,8,0.5,0.0
+fatorial_dados_v3,fatorial,dados,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+return resultado if n is not None else resultado",4,107,1,0,1,0,0,1,0,0,1,1,0,1,0,1,1,0,3,0,1,1,3,0.5,0.0
+fatorial_dados_v4,fatorial,dados,"tabela = [1, 1, 2, 6, 24, 120]
+resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+return tabela[n] if resultado else resultado",5,134,1,0,1,0,0,1,0,0,2,1,1,1,0,1,0,0,9,0,0,1,3,0.6,0.2
+fatorial_dados_v5,fatorial,dados,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+return resultado * (10 ** 1000 // 10 ** 1000)",4,104,1,0,1,0,0,1,0,0,1,1,0,1,0,5,0,0,7,0,0,1,2,0.5,0.0
+fatorial_dados_v6,fatorial,dados,"valores_conhecidos = [1, 1, 2, 6, 24]
+if n < len(valores_conhecidos):
+    return valores_conhecidos[n]
+resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+return resultado",7,178,1,0,1,1,0,2,0,0,2,1,1,2,0,1,1,0,8,0,0,1,5,0.429,0.143
+fatorial_desempenho_v1,fatorial,desempenho,"def auxiliar(valor):
+    if valor <= 1:
+        return 1
+    return valor * auxiliar(valor - 1)
+return auxiliar(n)",5,114,0,0,0,1,0,3,0,0,0,0,0,2,2,2,1,0,3,0,0,1,2,0.0,0.0
+fatorial_desempenho_v2,fatorial,desempenho,"resultado = 1
+for i in range(1, n + 1):
+    resultado = 1
+    for k in range(1, i + 1):
+        resultado *= k
+return resultado",6,127,2,0,2,0,0,1,0,0,2,1,0,2,0,2,0,0,6,0,0,2,3,0.5,0.0
+fatorial_desempenho_v3,fatorial,desempenho,"resultado = 1
+for i in range(1, n + 1):
+    for _ in range(1):
+        for _ in range(1):
+            resultado *= i
+return resultado",6,133,3,0,3,0,0,1,0,0,1,1,0,3,0,1,0,0,5,0,0,3,4,0.333,0.0
+fatorial_desempenho_v4,fatorial,desempenho,"numeros = [i for i in range(1, n + 1)]
+resultado = 1
+for i in numeros:
+    resultado *= i
+return resultado",5,106,1,0,1,0,0,1,0,0,2,1,0,1,0,1,0,0,3,0,0,1,3,0.6,0.0
+fatorial_desempenho_v5,fatorial,desempenho,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+    _ = str(resultado)
+return resultado",5,98,1,0,1,0,0,1,0,0,2,1,0,2,0,1,0,0,3,0,0,1,3,0.6,0.0
+fatorial_desempenho_v6,fatorial,desempenho,"resultado = 1
+for i in range(1, n + 1):
+    intervalo = list(range(1, i + 1))
+    resultado = 1
+    for k in intervalo:
+        resultado *= k
+return resultado",7,159,2,0,2,0,0,1,0,0,3,1,0,3,0,2,0,0,6,0,0,2,4,0.571,0.0
+fatorial_excesso_v1,fatorial,excesso,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+    resultado *= 1
+return resultado",5,94,1,0,1,0,0,1,0,0,1,2,0,1,0,1,0,0,4,0,0,1,2,0.6,0.0
+fatorial_excesso_v2,fatorial,excesso,"resultado = 1
+for i in range(1, n + 1):
+    dobro = i * 2
+    resultado *= i
+return resultado",5,93,1,0,1,0,0,1,0,0,2,1,0,1,0,2,0,0,4,0,0,1,2,0.6,0.0
+fatorial_excesso_v3,fatorial,excesso,"resultado = 1
+for i in range(1, n + 1):
+    if i > 0:
+        if i > 0:
+            resultado *= i
+return resultado",6,115,1,0,1,2,0,1,0,0,1,1,0,1,0,1,2,0,5,0,0,3,2,0.333,0.0
+fatorial_excesso_v4,fatorial,excesso,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+    resultado = resultado
+return resultado",5,101,1,0,1,0,0,1,0,0,2,1,0,1,0,1,0,0,3,0,0,1,2,0.6,0.0
+fatorial_excesso_v5,fatorial,excesso,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+for _ in range(0):
+    resultado *= 1
+return resultado",6,113,2,0,2,0,0,1,0,0,1,2,0,2,0,1,0,0,5,0,0,1,3,0.5,0.0
+fatorial_excesso_v6,fatorial,excesso,"resultado = 1
+for i in range(1, n + 1):
+    resultado *= i
+    if False:
+        resultado = 0
+return resultado",6,111,1,0,1,1,0,1,0,0,2,1,0,1,0,1,0,0,4,0,0,2,2,0.5,0.0
+fatorial_inicializacao_v1,fatorial,inicializacao,"for i in range(1, n + 1):
+    resultado *= i
+return resultado",3,61,1,0,1,0,0,1,0,0,0,1,0,1,0,1,0,0,2,0,0,1,3,0.333,0.0
+fatorial_inicializacao_v2,fatorial,inicializacao,"resultado = None
+for i in range(1, n + 1):
+    resultado *= i
+return resultado",4,78,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fatorial_inicializacao_v3,fatorial,inicializacao,"resultado = ''
+for i in range(1, n + 1):
+    resultado *= i
+return resultado",4,76,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,2,1,0,1,2,0.5,0.0
+fatorial_inicializacao_v4,fatorial,inicializacao,"for i in range(1, n + 1):
+    resultado = 1
+    resultado *= i
+return resultado",4,79,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,3,0,0,1,2,0.5,0.0
+fatorial_inicializacao_v5,fatorial,inicializacao,"valor = 1
+for i in range(1, n + 1):
+    resultado *= i
+return resultado",4,71,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,3,0,0,1,3,0.5,0.0
+fatorial_inicializacao_v6,fatorial,inicializacao,"for i in range(1, n + 1):
+    resultado *= i
+resultado = 1
+return resultado",4,75,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,3,0,0,1,3,0.5,0.0
+fibonacci_comissao_v1,fibonacci,comissao,"resultado = 1
+contador = 1
+while contador <= n:
+    resultado *= contador
+    contador += 1
+return resultado",6,108,0,1,1,0,0,1,0,0,2,2,0,0,0,0,1,0,3,0,0,1,1,0.667,0.0
+fibonacci_comissao_v2,fibonacci,comissao,"a, b = 0, 1
+termos = []
+for _ in range(n):
+    termos.append(a)
+    a, b = b, a + b
+return termos",6,97,1,0,1,0,0,1,0,0,3,0,0,2,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_comissao_v3,fibonacci,comissao,"a, b = 0, 1
+soma = 0
+for _ in range(n):
+    soma += a
+    a, b = b, a + b
+return soma",6,85,1,0,1,0,0,1,0,0,3,1,0,1,0,1,0,0,3,0,0,1,2,0.667,0.0
+fibonacci_comissao_v4,fibonacci,comissao,"a, b = 2, 1
+for _ in range(n):
+    a, b = b, a + b
+return a",4,59,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_comissao_v5,fibonacci,comissao,"a, b = 0, 1
+for _ in range(n + 1):
+    a, b = b, a + b
+return a",4,63,1,0,1,0,0,1,0,0,2,0,0,1,0,2,0,0,3,0,0,1,2,0.5,0.0
+fibonacci_comissao_v6,fibonacci,comissao,"resultado = 1
+for _ in range(n):
+    resultado *= 2
+return resultado",4,68,1,0,1,0,0,1,0,0,1,1,0,1,0,0,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_computacao_v1,fibonacci,computacao,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a * b
+return a",4,59,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_computacao_v2,fibonacci,computacao,"a, b = 0, 1
+for _ in range(n):
+    b = a + b
+return a",4,53,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_computacao_v3,fibonacci,computacao,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, b + b
+return a",4,59,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_computacao_v4,fibonacci,computacao,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a - b
+return a",4,59,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_computacao_v5,fibonacci,computacao,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+return b",4,59,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_computacao_v6,fibonacci,computacao,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, (a * 2) + b
+return a",4,65,1,0,1,0,0,1,0,0,2,0,0,1,0,2,0,0,3,0,0,1,2,0.5,0.0
+fibonacci_controle_v1,fibonacci,controle,"a, b = 0, 1
+count = 0
+while count < n:
+    a, b = b, a + b
+return a",5,67,0,1,1,0,0,1,0,0,3,0,0,0,0,1,1,0,3,0,0,1,1,0.6,0.0
+fibonacci_controle_v2,fibonacci,controle,"a, b = 0, 1
+count = 0
+while count > n:
+    a, b = b, a + b
+    count += 1
+return a",6,82,0,1,1,0,0,1,0,0,3,1,0,0,0,1,1,0,4,0,0,1,1,0.667,0.0
+fibonacci_controle_v3,fibonacci,controle,"a, b = 0, 1
+for i in range(n):
+    if i % 2 == 0:
+        continue
+    a, b = b, a + b
+return a",6,95,1,0,1,1,0,1,0,1,2,0,0,1,0,2,1,0,4,0,0,2,2,0.333,0.0
+fibonacci_controle_v4,fibonacci,controle,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+    break
+return a",5,69,1,0,1,0,0,1,1,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.4,0.0
+fibonacci_controle_v5,fibonacci,controle,"if n <= 0:
+    pass
+else:
+    return 0
+a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+return a",8,98,1,0,1,1,1,2,0,0,2,0,0,1,0,1,1,0,4,0,0,1,3,0.25,0.0
+fibonacci_controle_v6,fibonacci,controle,"a, b = 0, 1
+count = 0
+while count < n or count == 0:
+    a, b = b, a + b
+    count += 1
+return a",6,96,0,1,1,0,0,1,0,0,3,1,0,0,0,1,2,1,5,0,0,1,1,0.667,0.0
+fibonacci_dados_v1,fibonacci,dados,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+return a",4,59,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_dados_v2,fibonacci,dados,"tabela = [0, 1, 1, 2, 3, 5, 8]
+a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+return tabela[n] if a else a",5,110,1,0,1,0,0,1,0,0,3,0,1,1,0,1,0,0,9,0,0,1,3,0.6,0.2
+fibonacci_dados_v3,fibonacci,dados,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+return a",4,59,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_dados_v4,fibonacci,dados,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+return a % (10 ** 1000)",4,74,1,0,1,0,0,1,0,0,2,0,0,1,0,3,0,0,4,0,0,1,2,0.5,0.0
+fibonacci_dados_v5,fibonacci,dados,"termos = [0, 1]
+for i in range(2, n):
+    termos.append(termos[i - 1] + termos[i - 2])
+return termos[n]",4,103,1,0,1,0,0,1,0,0,1,0,3,2,0,3,0,0,5,0,0,1,3,0.25,0.75
+fibonacci_dados_v6,fibonacci,dados,"a, b = 0, 1
+sequencia = []
+for _ in range(n):
+    a, b = b, a + b
+    sequencia.append(a)
+return sequencia[n]",6,109,1,0,1,0,0,1,0,0,3,0,1,2,0,1,0,0,2,0,0,1,3,0.5,0.167
+fibonacci_desempenho_v1,fibonacci,desempenho,"def auxiliar(valor):
+    if valor <= 1:
+        return valor
+    return auxiliar(valor - 1) + auxiliar(valor - 2)
+return auxiliar(n)",5,132,0,0,0,1,0,3,0,0,0,0,0,3,3,3,1,0,3,0,0,1,2,0.0,0.0
+fibonacci_desempenho_v2,fibonacci,desempenho,"a, b = 0, 1
+for i in range(n):
+    a, b = 0, 1
+    for _ in range(i):
+        a, b = b, a + b
+return a",6,102,2,0,2,0,0,1,0,0,3,0,0,2,0,1,0,0,4,0,0,2,3,0.5,0.0
+fibonacci_desempenho_v3,fibonacci,desempenho,"termos = []
+a, b = 0, 1
+for _ in range(n):
+    termos.append(a)
+    a, b = b, a + b
+return termos[-1] if termos else 0",6,118,1,0,1,0,0,1,0,0,3,0,1,2,0,1,0,0,4,0,0,1,2,0.5,0.167
+fibonacci_desempenho_v4,fibonacci,desempenho,"a, b = 0, 1
+for _ in range(n):
+    for _ in range(1):
+        for _ in range(1):
+            a, b = b, a + b
+return a",6,117,3,0,3,0,0,1,0,0,2,0,0,3,0,1,0,0,4,0,0,3,4,0.333,0.0
+fibonacci_desempenho_v5,fibonacci,desempenho,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+    _ = str(a)
+return a",5,74,1,0,1,0,0,1,0,0,3,0,0,2,0,1,0,0,2,0,0,1,3,0.6,0.0
+fibonacci_desempenho_v6,fibonacci,desempenho,"termos = [0, 1]
+for i in range(2, n + 2):
+    termos.append(sum(termos[i - 2:i]))
+return termos[n] if n < len(termos) else termos[-1]",4,133,1,0,1,0,0,1,0,0,1,0,3,4,0,2,1,0,6,0,0,1,6,0.25,0.75
+fibonacci_excesso_v1,fibonacci,excesso,"a, b = 0, 1
+for _ in range(n):
+    temp = a + b
+    a, b = b, temp
+    extra = temp * 1
+return a",6,96,1,0,1,0,0,1,0,0,4,0,0,1,0,2,0,0,3,0,0,1,2,0.667,0.0
+fibonacci_excesso_v2,fibonacci,excesso,"a, b = 0, 1
+for _ in range(n):
+    if n > 0:
+        if n > 0:
+            a, b = b, a + b
+return a",6,99,1,0,1,2,0,1,0,0,2,0,0,1,0,1,2,0,4,0,0,3,4,0.333,0.0
+fibonacci_excesso_v3,fibonacci,excesso,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+    a = a
+    b = b
+return a",6,79,1,0,1,0,0,1,0,0,4,0,0,1,0,1,0,0,2,0,0,1,2,0.667,0.0
+fibonacci_excesso_v4,fibonacci,excesso,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+for _ in range(0):
+    pass
+return a",6,87,2,0,2,0,0,1,0,0,2,0,0,2,0,1,0,0,3,0,0,1,3,0.333,0.0
+fibonacci_excesso_v5,fibonacci,excesso,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+    if False:
+        a = 0
+return a",6,87,1,0,1,1,0,1,0,0,3,0,0,1,0,1,0,0,3,0,0,2,2,0.5,0.0
+fibonacci_excesso_v6,fibonacci,excesso,"a, b = 0, 1
+for _ in range(n):
+    a, b = b, a + b + 0
+return a",4,63,1,0,1,0,0,1,0,0,2,0,0,1,0,2,0,0,3,0,0,1,2,0.5,0.0
+fibonacci_inicializacao_v1,fibonacci,inicializacao,"for _ in range(n):
+    a, b = b, a + b
+return a",3,47,1,0,1,0,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,1,5,0.333,0.0
+fibonacci_inicializacao_v2,fibonacci,inicializacao,"a, b = None, None
+for _ in range(n):
+    a, b = b, a + b
+return a",4,65,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,0,0,0,1,2,0.5,0.0
+fibonacci_inicializacao_v3,fibonacci,inicializacao,"a, b = '', ''
+for _ in range(n):
+    a, b = b, a + b
+return a",4,61,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,0,2,0,1,2,0.5,0.0
+fibonacci_inicializacao_v4,fibonacci,inicializacao,"for _ in range(n):
+    a, b = 0, 1
+    a, b = b, a + b
+return a",4,63,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,2,0.5,0.0
+fibonacci_inicializacao_v5,fibonacci,inicializacao,"x, y = 0, 1
+for _ in range(n):
+    a, b = b, a + b
+return a",4,59,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,5,0.5,0.0
+fibonacci_inicializacao_v6,fibonacci,inicializacao,"for _ in range(n):
+    a, b = b, a + b
+a, b = 0, 1
+return a",4,59,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,2,0,0,1,5,0.5,0.0
+media_ponderada_comissao_v1,media_ponderada,comissao,"soma = 0
+for v in valores:
+    soma += v
+return soma / len(valores) if valores else 0",4,85,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,2,0,0,1,4,0.5,0.0
+media_ponderada_comissao_v2,media_ponderada,comissao,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += max(v, p)
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",6,168,1,0,1,0,0,1,0,0,2,2,0,2,0,1,0,0,3,0,0,1,4,0.667,0.0
+media_ponderada_comissao_v3,media_ponderada,comissao,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(pesos, valores):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",6,164,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,3,0,0,1,3,0.667,0.0
+media_ponderada_comissao_v4,media_ponderada,comissao,"soma_valores = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+return soma_valores",4,95,1,0,1,0,0,1,0,0,1,1,0,1,0,1,0,0,1,0,0,1,3,0.5,0.0
+media_ponderada_comissao_v5,media_ponderada,comissao,return sum(pesos) / len(pesos) if pesos else 0,1,46,0,0,0,0,0,1,0,0,0,0,0,2,0,1,0,0,1,0,0,0,5,0.0,0.0
+media_ponderada_comissao_v6,media_ponderada,comissao,"soma_valores = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+return soma_valores / max(pesos) if pesos else 0",4,124,1,0,1,0,0,1,0,0,1,1,0,2,0,2,0,0,2,0,0,1,6,0.5,0.0
+media_ponderada_computacao_v1,media_ponderada,computacao,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v + p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",6,164,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,3,0,0,1,3,0.667,0.0
+media_ponderada_computacao_v2,media_ponderada,computacao,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += v
+return soma_valores / soma_pesos if soma_pesos else 0",6,164,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,3,0,0,1,3,0.667,0.0
+media_ponderada_computacao_v3,media_ponderada,computacao,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores // soma_pesos if soma_pesos else 0",6,165,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,3,0,0,1,3,0.667,0.0
+media_ponderada_computacao_v4,media_ponderada,computacao,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * (p ** 2)
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",6,171,1,0,1,0,0,1,0,0,2,2,0,1,0,3,0,0,4,0,0,1,3,0.667,0.0
+media_ponderada_computacao_v5,media_ponderada,computacao,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores = v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",6,163,1,0,1,0,0,1,0,0,3,1,0,1,0,2,0,0,3,0,0,1,3,0.667,0.0
+media_ponderada_computacao_v6,media_ponderada,computacao,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_valores if soma_valores else 0",6,168,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,3,0,0,1,3,0.667,0.0
+media_ponderada_controle_v1,media_ponderada,controle,"soma_valores = 0
+soma_pesos = 0
+i = 0
+while i < len(valores):
+    soma_valores += valores[i] * pesos[i]
+    soma_pesos += pesos[i]
+return soma_valores / soma_pesos if soma_pesos else 0",7,184,0,1,1,0,0,1,0,0,3,2,3,1,0,2,1,0,4,0,0,1,5,0.714,0.429
+media_ponderada_controle_v2,media_ponderada,controle,"soma_valores = 0
+soma_pesos = 0
+i = 0
+while i > len(valores):
+    soma_valores += valores[i] * pesos[i]
+    soma_pesos += pesos[i]
+    i += 1
+return soma_valores / soma_pesos if soma_pesos else 0",8,195,0,1,1,0,0,1,0,0,3,3,3,1,0,2,1,0,5,0,0,1,5,0.75,0.375
+media_ponderada_controle_v3,media_ponderada,controle,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    if p == 0:
+        continue
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",8,196,1,0,1,1,0,1,0,1,2,2,0,1,0,2,1,0,4,0,0,2,3,0.5,0.0
+media_ponderada_controle_v4,media_ponderada,controle,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+    break
+return soma_valores / soma_pesos if soma_pesos else 0",7,174,1,0,1,0,0,1,1,0,2,2,0,1,0,2,0,0,3,0,0,1,3,0.571,0.0
+media_ponderada_controle_v5,media_ponderada,controle,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    if p < 0:
+        soma_valores += v * p
+        soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",7,186,1,0,1,1,0,1,0,0,2,2,0,1,0,2,1,0,4,0,0,2,3,0.571,0.0
+media_ponderada_controle_v6,media_ponderada,controle,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    if p >= 0 or p < 0:
+        soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",7,192,1,0,1,1,0,1,0,0,2,2,0,1,0,2,2,1,5,0,0,2,3,0.571,0.0
+media_ponderada_dados_v1,media_ponderada,dados,"soma_valores = 0
+soma_pesos = 0
+for i in range(max(len(valores), len(pesos))):
+    soma_valores += valores[i] * pesos[i]
+    soma_pesos += pesos[i]
+return soma_valores / soma_pesos if soma_pesos else 0",6,201,1,0,1,0,0,1,0,0,2,2,3,4,0,2,0,0,3,0,0,1,9,0.667,0.5
+media_ponderada_dados_v2,media_ponderada,dados,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos",6,143,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,2,0,0,1,3,0.667,0.0
+media_ponderada_dados_v3,media_ponderada,dados,"peso_inicial = pesos[0]
+soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",7,188,1,0,1,0,0,1,0,0,3,2,1,1,0,2,0,0,4,0,0,1,4,0.714,0.143
+media_ponderada_dados_v4,media_ponderada,dados,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return round(soma_valores / soma_pesos, 2) if soma_pesos else 0",6,174,1,0,1,0,0,1,0,0,2,2,0,2,0,2,0,0,4,0,0,1,4,0.667,0.0
+media_ponderada_dados_v5,media_ponderada,dados,"soma_valores = 0
+soma_pesos = 0
+for i in range(len(pesos)):
+    soma_valores += valores[i] * pesos[i]
+    soma_pesos += pesos[i]
+extra = valores[len(pesos)] if len(valores) > len(pesos) else 0
+return soma_valores / soma_pesos if soma_pesos else 0",7,246,1,0,1,0,0,1,0,0,3,2,4,5,0,2,1,0,4,0,0,1,13,0.714,0.571
+media_ponderada_dados_v6,media_ponderada,dados,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos",6,143,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,2,0,0,1,3,0.667,0.0
+media_ponderada_desempenho_v1,media_ponderada,desempenho,"soma_valores = 0
+for v in valores:
+    for p in pesos:
+        soma_valores += v * p
+soma_pesos = sum(pesos)
+return soma_valores / soma_pesos if soma_pesos else 0",6,162,2,0,2,0,0,1,0,0,2,1,0,1,0,2,0,0,2,0,0,2,4,0.5,0.0
+media_ponderada_desempenho_v2,media_ponderada,desempenho,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos = sum(pesos)
+return soma_valores / soma_pesos if soma_pesos else 0",6,172,1,0,1,0,0,1,0,0,3,1,0,2,0,2,0,0,3,0,0,1,5,0.667,0.0
+media_ponderada_desempenho_v3,media_ponderada,desempenho,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    v_temp, p_temp = list(valores), list(pesos)
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",7,212,1,0,1,0,0,1,0,0,3,2,0,3,0,2,0,0,3,0,0,1,7,0.714,0.0
+media_ponderada_desempenho_v4,media_ponderada,desempenho,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    if v in valores and p in pesos:
+        soma_valores += v * p
+        soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",7,208,1,0,1,1,0,1,0,0,2,2,0,1,0,2,2,1,3,0,0,2,5,0.571,0.0
+media_ponderada_desempenho_v5,media_ponderada,desempenho,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    sorted(valores)
+    sorted(pesos)
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",8,202,1,0,1,0,0,1,0,0,2,2,0,3,0,2,0,0,3,0,0,1,7,0.5,0.0
+media_ponderada_desempenho_v6,media_ponderada,desempenho,"soma_valores = 0
+soma_pesos = 0
+for i in range(min(len(valores), len(pesos))):
+    for _ in range(len(valores)):
+        pass
+    soma_valores += valores[i] * pesos[i]
+    soma_pesos += pesos[i]
+return soma_valores / soma_pesos if soma_pesos else 0",8,248,2,0,2,0,0,1,0,0,2,2,3,6,0,2,0,0,3,0,0,2,12,0.5,0.375
+media_ponderada_excesso_v1,media_ponderada,excesso,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+    soma_valores += 0
+return soma_valores / soma_pesos if soma_pesos else 0",7,186,1,0,1,0,0,1,0,0,2,3,0,1,0,2,0,0,4,0,0,1,3,0.714,0.0
+media_ponderada_excesso_v2,media_ponderada,excesso,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    produto_dobrado = v * p * 2
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",7,196,1,0,1,0,0,1,0,0,3,2,0,1,0,4,0,0,4,0,0,1,3,0.714,0.0
+media_ponderada_excesso_v3,media_ponderada,excesso,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    if p >= 0 or p < 0:
+        if p >= 0 or p < 0:
+            soma_valores += v * p
+            soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",8,232,1,0,1,2,0,1,0,0,2,2,0,1,0,2,4,2,7,0,0,3,3,0.5,0.0
+media_ponderada_excesso_v4,media_ponderada,excesso,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+    soma_valores = soma_valores
+    soma_pesos = soma_pesos
+return soma_valores / soma_pesos if soma_pesos else 0",8,224,1,0,1,0,0,1,0,0,4,2,0,1,0,2,0,0,3,0,0,1,3,0.75,0.0
+media_ponderada_excesso_v5,media_ponderada,excesso,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+for _ in range(0):
+    pass
+return soma_valores / soma_pesos if soma_pesos else 0",8,192,2,0,2,0,0,1,0,0,2,2,0,2,0,2,0,0,4,0,0,1,4,0.5,0.0
+media_ponderada_excesso_v6,media_ponderada,excesso,"soma_valores = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+    if False:
+        soma_valores = 0
+return soma_valores / soma_pesos if soma_pesos else 0",8,203,1,0,1,1,0,1,0,0,3,2,0,1,0,2,0,0,4,0,0,2,3,0.625,0.0
+media_ponderada_inicializacao_v1,media_ponderada,inicializacao,"for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",4,132,1,0,1,0,0,1,0,0,0,2,0,1,0,2,0,0,1,0,0,1,5,0.5,0.0
+media_ponderada_inicializacao_v2,media_ponderada,inicializacao,"soma_valores = None
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",6,167,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,2,0,0,1,3,0.667,0.0
+media_ponderada_inicializacao_v3,media_ponderada,inicializacao,"soma_valores = 0
+soma_pesos = ''
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",6,165,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,2,1,0,1,3,0.667,0.0
+media_ponderada_inicializacao_v4,media_ponderada,inicializacao,"for v, p in zip(valores, pesos):
+    soma_valores = 0
+    soma_pesos = 0
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",6,172,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,3,0,0,1,3,0.667,0.0
+media_ponderada_inicializacao_v5,media_ponderada,inicializacao,"soma_v = 0
+soma_pesos = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+return soma_valores / soma_pesos if soma_pesos else 0",6,158,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,3,0,0,1,4,0.667,0.0
+media_ponderada_inicializacao_v6,media_ponderada,inicializacao,"soma_valores = 0
+for v, p in zip(valores, pesos):
+    soma_valores += v * p
+    soma_pesos += p
+soma_pesos = 0
+return soma_valores / soma_pesos if soma_pesos else 0",6,164,1,0,1,0,0,1,0,0,2,2,0,1,0,2,0,0,3,0,0,1,4,0.667,0.0
+ordenar_lista_comissao_v1,ordenar_lista,comissao,"resultado = sorted(lista, reverse=True)
+for i in range(len(lista)):
+    lista[i] = resultado[i]
+return lista",4,108,1,0,1,0,0,1,0,0,2,0,2,3,0,0,0,0,0,0,0,1,5,0.5,0.5
+ordenar_lista_comissao_v2,ordenar_lista,comissao,"resultado = []
+for item in lista:
+    if item not in resultado:
+        resultado.append(item)
+return resultado",5,111,1,0,1,1,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,2,1,0.2,0.0
+ordenar_lista_comissao_v3,ordenar_lista,comissao,return lista[::-1],1,18,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0.0,1.0
+ordenar_lista_comissao_v4,ordenar_lista,comissao,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if abs(lista[i]) > abs(lista[j]):
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,173,2,0,2,1,0,1,0,0,1,0,6,6,0,1,1,0,1,0,0,3,12,0.2,1.2
+ordenar_lista_comissao_v5,ordenar_lista,comissao,"import random
+for i in range(len(lista)):
+    j = random.randint(0, len(lista) - 1)
+    lista[i], lista[j] = lista[j], lista[i]
+return lista",5,140,1,0,1,0,0,1,0,0,2,0,4,4,0,1,0,0,2,0,0,1,8,0.4,0.8
+ordenar_lista_comissao_v6,ordenar_lista,comissao,"metade = len(lista) // 2
+for i in range(metade):
+    for j in range(i + 1, metade):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",6,180,2,0,2,1,0,1,0,0,2,0,6,3,0,2,1,0,2,0,0,3,8,0.333,1.0
+ordenar_lista_computacao_v1,ordenar_lista,computacao,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] < lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,163,2,0,2,1,0,1,0,0,1,0,6,4,0,1,1,0,1,0,0,3,10,0.2,1.2
+ordenar_lista_computacao_v2,ordenar_lista,computacao,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] != lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,164,2,0,2,1,0,1,0,0,1,0,6,4,0,1,1,0,1,0,0,3,10,0.2,1.2
+ordenar_lista_computacao_v3,ordenar_lista,computacao,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i] = lista[j]
+return lista",5,143,2,0,2,1,0,1,0,0,1,0,4,4,0,1,1,0,1,0,0,3,9,0.2,0.8
+ordenar_lista_computacao_v4,ordenar_lista,computacao,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] >= lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,164,2,0,2,1,0,1,0,0,1,0,6,4,0,1,1,0,1,0,0,3,10,0.2,1.2
+ordenar_lista_computacao_v5,ordenar_lista,computacao,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j - 1]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,167,2,0,2,1,0,1,0,0,1,0,6,4,0,2,1,0,2,0,0,3,10,0.2,1.2
+ordenar_lista_computacao_v6,ordenar_lista,computacao,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[i + 1] = lista[i + 1], lista[i]
+return lista",5,171,2,0,2,1,0,1,0,0,1,0,6,4,0,3,1,0,3,0,0,3,10,0.2,1.2
+ordenar_lista_controle_v1,ordenar_lista,controle,"i = 0
+while i < len(lista):
+    j = i + 1
+    while j < len(lista):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",7,164,0,2,2,1,0,1,0,0,3,0,6,2,0,1,3,0,2,0,0,3,8,0.429,0.857
+ordenar_lista_controle_v2,ordenar_lista,controle,"i = 0
+while i > len(lista):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+    i += 1
+return lista",7,174,1,1,2,1,0,1,0,0,2,1,6,3,0,1,2,0,3,0,0,3,9,0.429,0.857
+ordenar_lista_controle_v3,ordenar_lista,controle,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            pass
+        else:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",7,194,2,0,2,1,1,1,0,0,1,0,6,4,0,1,1,0,1,0,0,3,10,0.143,0.857
+ordenar_lista_controle_v4,ordenar_lista,controle,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+        break
+return lista",6,177,2,0,2,1,0,1,1,0,1,0,6,4,0,1,1,0,1,0,0,3,10,0.167,1.0
+ordenar_lista_controle_v5,ordenar_lista,controle,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] <= lista[j]:
+            continue
+        lista[i], lista[j] = lista[j], lista[i]
+        continue
+return lista",7,198,2,0,2,1,0,1,0,2,1,0,6,4,0,1,1,0,1,0,0,3,10,0.143,0.857
+ordenar_lista_controle_v6,ordenar_lista,controle,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j] or lista[i] == lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,187,2,0,2,1,0,1,0,0,1,0,8,4,0,1,2,1,1,0,0,3,12,0.2,1.6
+ordenar_lista_dados_v1,ordenar_lista,dados,"for i in range(len(lista) + 1):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,167,2,0,2,1,0,1,0,0,1,0,6,4,0,2,1,0,2,0,0,3,10,0.2,1.2
+ordenar_lista_dados_v2,ordenar_lista,dados,"for i in range(len(lista)):
+    for j in range(i, len(lista)):
+        if lista[i] > lista[j + 1]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,163,2,0,2,1,0,1,0,0,1,0,6,4,0,1,1,0,1,0,0,3,10,0.2,1.2
+ordenar_lista_dados_v3,ordenar_lista,dados,"referencia = lista[0]
+for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",6,185,2,0,2,1,0,1,0,0,2,0,7,4,0,1,1,0,2,0,0,3,11,0.333,1.167
+ordenar_lista_dados_v4,ordenar_lista,dados,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista + [0]",5,169,2,0,2,1,0,1,0,0,1,0,6,4,0,2,1,0,2,0,0,3,10,0.2,1.2
+ordenar_lista_dados_v5,ordenar_lista,dados,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[len(lista)]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,172,2,0,2,1,0,1,0,0,1,0,6,5,0,1,1,0,1,0,0,3,12,0.2,1.2
+ordenar_lista_dados_v6,ordenar_lista,dados,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+assert lista[-1] >= lista[0]
+return lista",6,192,2,0,2,1,0,1,0,0,1,0,8,4,0,1,2,0,3,0,0,3,10,0.167,1.333
+ordenar_lista_desempenho_v1,ordenar_lista,desempenho,"for i in range(len(lista)):
+    for j in range(len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,156,2,0,2,1,0,1,0,0,1,0,6,4,0,0,1,0,0,0,0,3,10,0.2,1.2
+ordenar_lista_desempenho_v2,ordenar_lista,desempenho,"for i in range(len(lista)):
+    for j in range(i + 1, len(list(lista))):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",5,169,2,0,2,1,0,1,0,0,1,0,6,5,0,1,1,0,1,0,0,3,11,0.2,1.2
+ordenar_lista_desempenho_v3,ordenar_lista,desempenho,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if sorted(lista) == lista:
+            pass
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",7,215,2,0,2,2,0,1,0,0,1,0,6,5,0,1,2,0,1,0,0,3,13,0.143,0.857
+ordenar_lista_desempenho_v4,ordenar_lista,desempenho,"for i in range(len(lista)):
+    copia = lista[:]
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",6,184,2,0,2,1,0,1,0,0,2,0,7,4,0,1,1,0,1,0,0,3,11,0.333,1.167
+ordenar_lista_desempenho_v5,ordenar_lista,desempenho,"for i in range(len(lista)):
+    contagem = 0
+    for k in range(len(lista)):
+        contagem += 1
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",8,234,3,0,3,1,0,1,0,0,2,1,6,6,0,1,1,0,3,0,0,3,13,0.375,0.75
+ordenar_lista_desempenho_v6,ordenar_lista,desempenho,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        lista[i:] = sorted(lista[i:], reverse=True) if False else lista[i:]
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",6,239,2,0,2,1,0,1,0,0,2,0,9,5,0,1,1,0,1,0,0,3,9,0.333,1.5
+ordenar_lista_excesso_v1,ordenar_lista,excesso,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+        lista[i], lista[j] = lista[j], lista[i]
+        lista[i], lista[j] = lista[j], lista[i]
+return lista",7,259,2,0,2,1,0,1,0,0,3,0,14,4,0,1,1,0,1,0,0,3,10,0.429,2.0
+ordenar_lista_excesso_v2,ordenar_lista,excesso,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            if lista[i] > lista[j]:
+                lista[i], lista[j] = lista[j], lista[i]
+return lista",6,203,2,0,2,2,0,1,0,0,1,0,8,4,0,1,2,0,1,0,0,4,12,0.167,1.333
+ordenar_lista_excesso_v3,ordenar_lista,excesso,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        maior = max(lista[i], lista[j])
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",6,203,2,0,2,1,0,1,0,0,2,0,8,5,0,1,1,0,1,0,0,3,13,0.333,1.333
+ordenar_lista_excesso_v4,ordenar_lista,excesso,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+        lista = lista
+return lista",6,185,2,0,2,1,0,1,0,0,2,0,6,4,0,1,1,0,1,0,0,3,10,0.333,1.0
+ordenar_lista_excesso_v5,ordenar_lista,excesso,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+for _ in range(0):
+    pass
+return lista",7,191,3,0,3,1,0,1,0,0,1,0,6,5,0,1,1,0,2,0,0,3,11,0.143,0.857
+ordenar_lista_excesso_v6,ordenar_lista,excesso,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+        if False:
+            lista[i] = lista[i]
+return lista",7,213,2,0,2,2,0,1,0,0,2,0,8,4,0,1,1,0,1,0,0,3,10,0.286,1.143
+ordenar_lista_inicializacao_v1,ordenar_lista,inicializacao,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            auxiliar.append(lista[i])
+            lista[i], lista[j] = lista[j], lista[i]
+return lista",6,201,2,0,2,1,0,1,0,0,1,0,7,5,0,1,1,0,1,0,0,3,12,0.167,1.167
+ordenar_lista_inicializacao_v2,ordenar_lista,inicializacao,"trocas = None
+for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+            trocas += 1
+return lista",7,201,2,0,2,1,0,1,0,0,2,1,6,4,0,1,1,0,2,0,0,3,10,0.429,0.857
+ordenar_lista_inicializacao_v3,ordenar_lista,inicializacao,"trocas = ''
+for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+            trocas += 1
+return lista",7,199,2,0,2,1,0,1,0,0,2,1,6,4,0,1,1,0,2,1,0,3,10,0.429,0.857
+ordenar_lista_inicializacao_v4,ordenar_lista,inicializacao,"for i in range(len(lista)):
+    trocas = 0
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+            trocas += 1
+return lista",7,202,2,0,2,1,0,1,0,0,2,1,6,4,0,1,1,0,3,0,0,3,10,0.429,0.857
+ordenar_lista_inicializacao_v5,ordenar_lista,inicializacao,"n_trocas = 0
+for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+            trocas += 1
+return lista",7,200,2,0,2,1,0,1,0,0,2,1,6,4,0,1,1,0,3,0,0,3,11,0.429,0.857
+ordenar_lista_inicializacao_v6,ordenar_lista,inicializacao,"for i in range(len(lista)):
+    for j in range(i + 1, len(lista)):
+        if lista[i] > lista[j]:
+            lista[i], lista[j] = lista[j], lista[i]
+            trocas += 1
+trocas = 0
+return lista",7,198,2,0,2,1,0,1,0,0,2,1,6,4,0,1,1,0,3,0,0,3,11,0.429,0.857
+reverter_string_comissao_v1,reverter_string,comissao,return s.upper(),1,16,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0.0,0.0
+reverter_string_comissao_v2,reverter_string,comissao,"resultado = ''
+for char in s:
+    if char != ' ':
+        resultado += char
+return resultado",5,92,1,0,1,1,0,1,0,0,1,1,0,0,0,0,1,0,0,2,0,2,1,0.4,0.0
+reverter_string_comissao_v3,reverter_string,comissao,return ''.join(sorted(s)),1,25,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0,0,0,1,0,0,2,0.0,0.0
+reverter_string_comissao_v4,reverter_string,comissao,"palavras = s.split(' ')
+return ' '.join(palavras[::-1])",2,55,0,0,0,0,0,1,0,0,1,0,1,2,0,0,0,0,1,2,0,0,1,0.5,0.5
+reverter_string_comissao_v5,reverter_string,comissao,return s + s,1,12,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,2,0.0,0.0
+reverter_string_comissao_v6,reverter_string,comissao,"reversa = ''
+for char in s:
+    reversa = char + reversa
+return len(reversa)",4,76,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,0,1,0,1,2,0.5,0.0
+reverter_string_computacao_v1,reverter_string,computacao,"reversa = ''
+for char in s:
+    reversa += char
+return reversa",4,62,1,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,1,0,1,1,0.5,0.0
+reverter_string_computacao_v2,reverter_string,computacao,"reversa = ''
+for char in s:
+    reversa = char
+return reversa",4,61,1,0,1,0,0,1,0,0,2,0,0,0,0,0,0,0,0,1,0,1,1,0.5,0.0
+reverter_string_computacao_v3,reverter_string,computacao,"reversa = ''
+for char in s:
+    reversa = char.upper() + reversa
+return reversa",4,79,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,0,1,0,1,1,0.5,0.0
+reverter_string_computacao_v4,reverter_string,computacao,"reversa = ''
+for char in s:
+    reversa = char + char + reversa
+return reversa",4,78,1,0,1,0,0,1,0,0,2,0,0,0,0,2,0,0,0,1,0,1,1,0.5,0.0
+reverter_string_computacao_v5,reverter_string,computacao,"reversa = ''
+for char in s:
+    reversa = char + ' ' + reversa
+return reversa",4,77,1,0,1,0,0,1,0,0,2,0,0,0,0,2,0,0,0,2,0,1,1,0.5,0.0
+reverter_string_computacao_v6,reverter_string,computacao,"reversa = ''
+for char in s:
+    reversa = reversa + char
+return reversa",4,71,1,0,1,0,0,1,0,0,2,0,0,0,0,1,0,0,0,1,0,1,1,0.5,0.0
+reverter_string_controle_v1,reverter_string,controle,"reversa = ''
+i = 0
+while i < len(s):
+    reversa = s[i] + reversa
+return reversa",5,80,0,1,1,0,0,1,0,0,3,0,1,1,0,1,1,0,1,1,0,1,3,0.6,0.2
+reverter_string_controle_v2,reverter_string,controle,"reversa = ''
+i = 0
+while i > len(s):
+    reversa = s[i] + reversa
+    i += 1
+return reversa",6,91,0,1,1,0,0,1,0,0,3,1,1,1,0,1,1,0,2,1,0,1,3,0.667,0.167
+reverter_string_controle_v3,reverter_string,controle,"reversa = ''
+for char in s:
+    if char == ' ':
+        continue
+    reversa = char + reversa
+return reversa",6,108,1,0,1,1,0,1,0,1,2,0,0,0,0,1,1,0,0,2,0,2,1,0.333,0.0
+reverter_string_controle_v4,reverter_string,controle,"reversa = ''
+for char in s:
+    reversa = char + reversa
+    break
+return reversa",5,81,1,0,1,0,0,1,1,0,2,0,0,0,0,1,0,0,0,1,0,1,1,0.4,0.0
+reverter_string_controle_v5,reverter_string,controle,"reversa = ''
+for char in s:
+    if char.isupper():
+        pass
+    else:
+        reversa = char + reversa
+return reversa",7,121,1,0,1,1,1,1,0,0,2,0,0,1,0,1,0,0,0,1,0,2,1,0.286,0.0
+reverter_string_controle_v6,reverter_string,controle,"reversa = ''
+for char in s:
+    if char == char or False:
+        reversa = char + reversa
+return reversa",5,105,1,0,1,1,0,1,0,0,2,0,0,0,0,1,1,1,0,1,0,2,1,0.4,0.0
+reverter_string_dados_v1,reverter_string,dados,"reversa = ''
+for i in range(len(s) + 1):
+    reversa = s[i] + reversa
+return reversa",4,84,1,0,1,0,0,1,0,0,2,0,1,2,0,2,0,0,1,1,0,1,4,0.5,0.25
+reverter_string_dados_v2,reverter_string,dados,"reversa = ''
+for char in s:
+    reversa = char + reversa
+return reversa",4,71,1,0,1,0,0,1,0,0,2,0,0,0,0,1,0,0,0,1,0,1,1,0.5,0.0
+reverter_string_dados_v3,reverter_string,dados,"reversa = ''
+for char in s:
+    reversa = char + reversa
+return reversa.strip()",4,79,1,0,1,0,0,1,0,0,2,0,0,1,0,1,0,0,0,1,0,1,1,0.5,0.0
+reverter_string_dados_v4,reverter_string,dados,"primeiro_char = s[0]
+reversa = ''
+for char in s:
+    reversa = char + reversa
+return reversa",5,92,1,0,1,0,0,1,0,0,3,0,1,0,0,1,0,0,1,1,0,1,2,0.6,0.2
+reverter_string_dados_v5,reverter_string,dados,"reversa = ''
+for i in range(len(s)):
+    reversa = s[i] + reversa
+    s[i] = s[i]
+return reversa",5,96,1,0,1,0,0,1,0,0,3,0,3,2,0,1,0,0,0,1,0,1,5,0.6,0.6
+reverter_string_dados_v6,reverter_string,dados,"ultimo = s[-1]
+reversa = ''
+for char in s:
+    reversa = char + reversa
+return reversa + '' if len(s) > 0 else ultimo",5,117,1,0,1,0,0,1,0,0,3,0,1,1,0,2,1,0,2,2,0,1,4,0.6,0.2
+reverter_string_desempenho_v1,reverter_string,desempenho,"reversa = ''
+for i in range(len(s)):
+    reversa += s[len(s) - 1 - i]
+return reversa",4,84,1,0,1,0,0,1,0,0,1,1,1,3,0,2,0,0,1,1,0,1,6,0.5,0.25
+reverter_string_desempenho_v2,reverter_string,desempenho,"reversa = ''
+for i in range(len(s)):
+    reversa = s[:i + 1][::-1]
+return reversa",4,81,1,0,1,0,0,1,0,0,2,0,2,2,0,1,0,0,2,1,0,1,4,0.5,0.5
+reverter_string_desempenho_v3,reverter_string,desempenho,"reversa = ''
+for char in s:
+    for _ in s:
+        pass
+    reversa = char + reversa
+return reversa",6,100,2,0,2,0,0,1,0,0,2,0,0,0,0,1,0,0,0,1,0,2,2,0.333,0.0
+reverter_string_desempenho_v4,reverter_string,desempenho,"def auxiliar(texto):
+    if len(texto) == 0:
+        return ''
+    return auxiliar(texto[1:]) + texto[0]
+return auxiliar(s)",5,123,0,0,0,1,0,3,0,0,0,0,2,3,2,1,1,0,3,1,0,1,2,0.0,0.4
+reverter_string_desempenho_v5,reverter_string,desempenho,"reversa = ''
+for char in s:
+    lista_temp = list(s)
+    reversa = char + reversa
+return reversa",5,96,1,0,1,0,0,1,0,0,3,0,0,1,0,1,0,0,0,1,0,1,3,0.6,0.0
+reverter_string_desempenho_v6,reverter_string,desempenho,"reversa = ''
+for char in s:
+    if char in s:
+        reversa = char + reversa
+return reversa",5,93,1,0,1,1,0,1,0,0,2,0,0,0,0,1,1,0,0,1,0,2,2,0.4,0.0
+reverter_string_excesso_v1,reverter_string,excesso,"reversa = ''
+for char in s:
+    reversa = char + reversa
+    reversa += ''
+return reversa",5,89,1,0,1,0,0,1,0,0,2,1,0,0,0,1,0,0,0,2,0,1,1,0.6,0.0
+reverter_string_excesso_v2,reverter_string,excesso,"reversa = ''
+for char in s:
+    maiuscula = char.upper()
+    reversa = char + reversa
+return reversa",5,100,1,0,1,0,0,1,0,0,3,0,0,1,0,1,0,0,0,1,0,1,1,0.6,0.0
+reverter_string_excesso_v3,reverter_string,excesso,"reversa = ''
+for char in s:
+    if char:
+        if char:
+            reversa = char + reversa
+return reversa",6,109,1,0,1,2,0,1,0,0,2,0,0,0,0,1,0,0,0,1,0,3,1,0.333,0.0
+reverter_string_excesso_v4,reverter_string,excesso,"reversa = ''
+for char in s:
+    reversa = char + reversa
+    reversa = reversa
+return reversa",5,93,1,0,1,0,0,1,0,0,3,0,0,0,0,1,0,0,0,1,0,1,1,0.6,0.0
+reverter_string_excesso_v5,reverter_string,excesso,"reversa = ''
+for char in s:
+    reversa = char + reversa
+for _ in '':
+    pass
+return reversa",6,93,2,0,2,0,0,1,0,0,2,0,0,0,0,1,0,0,0,2,0,1,1,0.333,0.0
+reverter_string_excesso_v6,reverter_string,excesso,"reversa = ''
+for char in s:
+    reversa = char + reversa
+    if False:
+        reversa = ''
+return reversa",6,106,1,0,1,1,0,1,0,0,3,0,0,0,0,1,0,0,0,2,0,2,1,0.5,0.0
+reverter_string_inicializacao_v1,reverter_string,inicializacao,"for char in s:
+    reversa = char + reversa
+return reversa",3,58,1,0,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,1,2,0.333,0.0
+reverter_string_inicializacao_v2,reverter_string,inicializacao,"reversa = None
+for char in s:
+    reversa = char + reversa
+return reversa",4,73,1,0,1,0,0,1,0,0,2,0,0,0,0,1,0,0,0,0,0,1,1,0.5,0.0
+reverter_string_inicializacao_v3,reverter_string,inicializacao,"reversa = []
+for char in s:
+    reversa = char + reversa
+return reversa",4,71,1,0,1,0,0,1,0,0,2,0,0,0,0,1,0,0,0,0,0,1,1,0.5,0.0
+reverter_string_inicializacao_v4,reverter_string,inicializacao,"for char in s:
+    reversa = ''
+    reversa = char + reversa
+return reversa",4,75,1,0,1,0,0,1,0,0,2,0,0,0,0,1,0,0,0,1,0,1,1,0.5,0.0
+reverter_string_inicializacao_v5,reverter_string,inicializacao,"resultado = ''
+for char in s:
+    reversa = char + reversa
+return reversa",4,73,1,0,1,0,0,1,0,0,2,0,0,0,0,1,0,0,0,1,0,1,2,0.5,0.0
+reverter_string_inicializacao_v6,reverter_string,inicializacao,"for char in s:
+    reversa = char + reversa
+reversa = ''
+return reversa",4,71,1,0,1,0,0,1,0,0,2,0,0,0,0,1,0,0,0,1,0,1,2,0.5,0.0

@@ -1,0 +1,23 @@
+RELATORIO DE CLASSIFICACAO - CONJUNTO DE TESTE (20%)
+============================================================
+
+Acuracia            : 0.5476
+Precisao (macro)    : 0.5813
+Recall (macro)      : 0.5476
+F1-score (macro)    : 0.5387
+F1-score (weighted) : 0.5387
+Validacao cruzada 5-fold (F1-macro, treino): 0.4447 +/- 0.0324
+
+               precision    recall  f1-score   support
+
+     comissao       0.80      0.33      0.47        12
+   computacao       0.50      0.75      0.60        12
+     controle       0.82      0.75      0.78        12
+        dados       0.40      0.33      0.36        12
+   desempenho       0.22      0.17      0.19        12
+      excesso       0.43      0.75      0.55        12
+inicializacao       0.90      0.75      0.82        12
+
+     accuracy                           0.55        84
+    macro avg       0.58      0.55      0.54        84
+ weighted avg       0.58      0.55      0.54        84
