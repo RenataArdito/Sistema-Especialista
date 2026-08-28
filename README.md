@@ -28,25 +28,25 @@ Revisão manual de código é cara, lenta e sujeita a viés do revisor. Este pro
 
 O sistema classifica cada trecho de código em uma de **7 categorias de defeito**, inspiradas na taxonomia de mutação de software (Mutation Testing, DeMillo et al., 1978):
 
-| Categoria | Descrição |
-|---|---|
-| `inicializacao` | Variáveis inicializadas com valor incorreto |
-| `controle` | Condições de laço/decisão alteradas (limites, operadores) |
-| `dados` | Estruturas de dados manipuladas incorretamente |
-| `computacao` | Operadores aritméticos/lógicos trocados |
-| `comissao` | Instrução ou operação trocada por outra (ex.: `min()` no lugar de `max()`) |
-| `excesso` | Código redundante ou operações desnecessárias |
-| `desempenho` | Implementação correta, porém ineficiente |
+| Categoria         | Descrição                                                                       |
+| ----------------- | --------------------------------------------------------------------------------- |
+| `inicializacao` | Variáveis inicializadas com valor incorreto                                      |
+| `controle`      | Condições de laço/decisão alteradas (limites, operadores)                     |
+| `dados`         | Estruturas de dados manipuladas incorretamente                                    |
+| `computacao`    | Operadores aritméticos/lógicos trocados                                         |
+| `comissao`      | Instrução ou operação trocada por outra (ex.:`min()` no lugar de `max()`) |
+| `excesso`       | Código redundante ou operações desnecessárias                                 |
+| `desempenho`    | Implementação correta, porém ineficiente                                       |
 
 ## Arquitetura do pipeline
 
 ```
    dados/erros.py                  preprocessamento/            modelo/                    inferencia/
- ┌───────────────────┐      ┌───────────────────────┐   ┌──────────────────────┐   ┌──────────────────────────┐
- │ 420 funções        │      │ Limpeza anti-vazamento │   │ Random Forest         │   │ Código novo               │
- │ (10 algoritmos ×    │ ──▶ │ de rótulo + extração   │──▶│ (split 80/20,         │──▶│ → mesmo pré-processamento │
- │  7 categorias ×     │      │ de 25 features via AST │   │  validação cruzada)   │   │ → classificação           │
- │  6 variantes)       │      └───────────────────────┘   └──────────────────────┘   └──────────────────────────┘
+ ┌───────────────────┐      ┌───────────────────────┐    ┌──────────────────────┐     ┌──────────────────────────┐
+ │ 420 funções       │      │ Limpeza anti-vazamento│    │ Random Forest        │     │ Código novo              │
+ │ (10 algoritmos ×  │ ──▶ │ de rótulo + extração   │──▶│ (split 80/20,        │ ──▶│ → mesmo pré-processamento│
+ │  7 categorias ×   │      │ de 25 features via AST│    │  validação cruzada)  │     │ → classificação          │
+ │  6 variantes)     │      └───────────────────────┘    └──────────────────────┘     └──────────────────────────┘
  └───────────────────┘
 ```
 
@@ -63,33 +63,33 @@ Cada etapa é um script Python independente e auditável isoladamente; `executar
 
 Avaliação sobre o conjunto de teste (20%, 84 exemplos), modelo Random Forest:
 
-| Métrica | Valor |
-|---|---|
-| Acurácia | **54,8%** |
-| Precisão (macro) | 58,1% |
-| Recall (macro) | 54,8% |
-| F1-score (macro) | 53,9% |
-| F1-score (weighted) | 53,9% |
-| Validação cruzada 5-fold (F1-macro, treino) | 44,5% ± 3,2% |
+| Métrica                                      | Valor           |
+| --------------------------------------------- | --------------- |
+| Acurácia                                     | **54,8%** |
+| Precisão (macro)                             | 58,1%           |
+| Recall (macro)                                | 54,8%           |
+| F1-score (macro)                              | 53,9%           |
+| F1-score (weighted)                           | 53,9%           |
+| Validação cruzada 5-fold (F1-macro, treino) | 44,5% ± 3,2%   |
 
 **Desempenho por categoria** (precisão / recall / F1):
 
-| Categoria | Precisão | Recall | F1 |
-|---|---|---|---|
-| `inicializacao` | 0.90 | 0.75 | **0.82** |
-| `controle` | 0.82 | 0.75 | 0.78 |
-| `computacao` | 0.50 | 0.75 | 0.60 |
-| `excesso` | 0.43 | 0.75 | 0.55 |
-| `comissao` | 0.80 | 0.33 | 0.47 |
-| `dados` | 0.40 | 0.33 | 0.36 |
-| `desempenho` | 0.22 | 0.17 | 0.19 |
+| Categoria         | Precisão | Recall | F1             |
+| ----------------- | --------- | ------ | -------------- |
+| `inicializacao` | 0.90      | 0.75   | **0.82** |
+| `controle`      | 0.82      | 0.75   | 0.78           |
+| `computacao`    | 0.50      | 0.75   | 0.60           |
+| `excesso`       | 0.43      | 0.75   | 0.55           |
+| `comissao`      | 0.80      | 0.33   | 0.47           |
+| `dados`         | 0.40      | 0.33   | 0.36           |
+| `desempenho`    | 0.22      | 0.17   | 0.19           |
 
 As categorias com maior sinal estrutural (`inicializacao`, `controle`) — que alteram diretamente o AST — são as mais bem classificadas. Já `desempenho` (código correto, porém ineficiente) é a mais difícil, pois não introduz nenhuma mudança estrutural detectável pelas features atuais — uma limitação discutida em detalhe no relatório técnico.
 
 Gráficos gerados automaticamente pelo pipeline:
 
-| Matriz de confusão | Importância das features |
-|---|---|
+| Matriz de confusão                 | Importância das features             |
+| ----------------------------------- | ------------------------------------- |
 | `resultados/confusion_matrix.png` | `resultados/feature_importance.png` |
 
 ## Como executar
@@ -184,5 +184,14 @@ Relatorio_Implementacao.docx -> relatório técnico completo (o que foi feito, c
 
 ## Autoria
 
-Trabalho de Conclusão de Curso — Universidade Presbiteriana Mackenzie
-**Renata Ardito**
+> Integrantes
+
+**Caroline Begiato Cabral**
+
+**Guilherme Ponciano Voz**
+
+**Renata Freire Ardito** 
+
+> Orientador
+
+**Luiz Carlos Machi Lozano**
