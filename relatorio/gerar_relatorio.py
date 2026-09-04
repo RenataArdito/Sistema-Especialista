@@ -365,6 +365,7 @@ def montar_html(dados: dict) -> str:
       classificadores -- o uso como fonte de dados rotulados e' a contribuicao metodologica
       deste trabalho, mas tambem sua principal limitacao de generalizacao (ver secao 06).</li>
   </ul>
+  <!--
 
   <h2><span class="num">06</span>Ameacas a validade / Limitacoes</h2>
   <ul class="lista-analitica">
@@ -402,7 +403,7 @@ def montar_html(dados: dict) -> str:
       Action/hook de CI, para uso continuo em vez de execucao manual de script.</li>
     <li><b>Suporte multi-linguagem e multi-arquivo.</b> Generalizar o extrator de features para alem
       de Python e de funcoes isoladas.</li>
-  </ul>
+  </ul>-->
 
   <footer>
     Relatorio gerado automaticamente por <code>relatorio/gerar_relatorio.py</code> a partir dos
