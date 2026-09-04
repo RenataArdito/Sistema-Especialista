@@ -4,8 +4,6 @@
 
 O projeto reproduz, de ponta a ponta, a arquitetura proposta no artigo *"Sistema Especialista Baseado em Machine Learning para Auxílio na Inspeção de Código Fonte e Classificação de Defeitos de Software"*: construção da base de dados, pré-processamento e extração de atributos via AST, treinamento de um classificador **Random Forest** e inferência sobre código novo — seguindo exatamente o diagrama de arquitetura descrito na Seção 3 do artigo.
 
-📄 Documentação completa (decisões de projeto, resultados e limitações): [`Relatorio_Implementacao.docx`](Relatorio_Implementacao.docx)
-
 ---
 
 ## Sumário
