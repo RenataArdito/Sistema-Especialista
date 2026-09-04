@@ -13,6 +13,12 @@ recall e F1-score (por classe e macro/weighted), conforme a
 metodologia descrita no artigo. Gera tambem a matriz de confusao e o
 grafico de importancia das features.
 
+Alem disso, treina 3 modelos baseline (classificador de maioria,
+regressao logistica e KNN) sobre o MESMO split e as MESMAS features,
+para contextualizar se o desempenho do Random Forest e' de fato
+superior a alternativas simples -- comparacao que o relatorio final
+(gerado por relatorio/gerar_relatorio.py) exibe lado a lado.
+
 Uso:
     python3 treinar_modelo.py
 Gera (em ../resultados/):
@@ -21,6 +27,7 @@ Gera (em ../resultados/):
     confusion_matrix.png
     feature_importance.png
     metricas_resumo.csv
+    comparacao_modelos.json
 """
 
 import json
@@ -33,7 +40,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     ConfusionMatrixDisplay,
     accuracy_score,
@@ -44,7 +53,8 @@ from sklearn.metrics import (
     recall_score,
 )
 from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.preprocessing import LabelEncoder
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
 ENTRADA_CSV = os.path.join(BASE_DIR, "resultados", "dataset_features.csv")
@@ -129,6 +139,55 @@ def main():
 
     os.makedirs(DIR_RESULTADOS, exist_ok=True)
 
+    # ------------------------------------------------------------------
+    # Baselines de comparacao: sem eles, nao ha como saber se 54,8% de
+    # acuracia e' um resultado forte, fraco ou equivalente ao de um
+    # classificador trivial. Treinados sobre o MESMO split 80/20 e as
+    # MESMAS 25 features do Random Forest, para comparacao justa.
+    # Regressao Logistica e KNN recebem as features padronizadas
+    # (media 0, desvio 1); o Random Forest e o Dummy nao precisam disso.
+    # ------------------------------------------------------------------
+    escalador = StandardScaler()
+    X_treino_esc = escalador.fit_transform(X_treino)
+    X_teste_esc = escalador.transform(X_teste)
+
+    candidatos_baseline = [
+        ("Maioria (Dummy)", DummyClassifier(strategy="most_frequent", random_state=RANDOM_STATE), X_treino, X_teste),
+        ("Regressao Logistica", LogisticRegression(max_iter=2000, class_weight="balanced", random_state=RANDOM_STATE), X_treino_esc, X_teste_esc),
+        ("KNN (k=5)", KNeighborsClassifier(n_neighbors=5), X_treino_esc, X_teste_esc),
+    ]
+
+    comparacao_modelos = [{
+        "modelo": "Random Forest",
+        "acuracia": acuracia,
+        "precisao_macro": precisao_macro,
+        "recall_macro": recall_macro,
+        "f1_macro": f1_macro,
+    }]
+
+    print("\n===== COMPARACAO COM MODELOS BASELINE (mesmo split e features) =====")
+    print(f"{'Modelo':22s} {'Acuracia':>10s} {'Prec.macro':>12s} {'Rec.macro':>11s} {'F1 macro':>10s}")
+    print(f"{'Random Forest':22s} {acuracia:10.4f} {precisao_macro:12.4f} {recall_macro:11.4f} {f1_macro:10.4f}")
+
+    for nome, modelo_base, X_tr, X_te in candidatos_baseline:
+        modelo_base.fit(X_tr, y_treino)
+        y_pred_base = modelo_base.predict(X_te)
+        acc_b = accuracy_score(y_teste, y_pred_base)
+        prec_b = precision_score(y_teste, y_pred_base, average="macro", zero_division=0)
+        rec_b = recall_score(y_teste, y_pred_base, average="macro", zero_division=0)
+        f1_b = f1_score(y_teste, y_pred_base, average="macro", zero_division=0)
+        comparacao_modelos.append({
+            "modelo": nome,
+            "acuracia": acc_b,
+            "precisao_macro": prec_b,
+            "recall_macro": rec_b,
+            "f1_macro": f1_b,
+        })
+        print(f"{nome:22s} {acc_b:10.4f} {prec_b:12.4f} {rec_b:11.4f} {f1_b:10.4f}")
+
+    with open(os.path.join(DIR_RESULTADOS, "comparacao_modelos.json"), "w", encoding="utf-8") as f:
+        json.dump(comparacao_modelos, f, ensure_ascii=False, indent=2)
+
     # salva relatorio de classificacao completo
     caminho_relatorio = os.path.join(DIR_RESULTADOS, "classification_report.txt")
     with open(caminho_relatorio, "w", encoding="utf-8") as f:
@@ -142,6 +201,11 @@ def main():
         f.write(f"Validacao cruzada 5-fold (F1-macro, treino): "
                 f"{scores_cv.mean():.4f} +/- {scores_cv.std():.4f}\n\n")
         f.write(relatorio_texto)
+        f.write("\n\nCOMPARACAO COM BASELINES (mesmo split e features)\n")
+        f.write("-" * 60 + "\n")
+        for item in comparacao_modelos:
+            f.write(f"  {item['modelo']:22s}: acuracia={item['acuracia']:.4f}  "
+                     f"f1_macro={item['f1_macro']:.4f}\n")
 
     # salva metricas resumidas em CSV (util para o relatorio)
     pd.DataFrame([{
@@ -195,6 +259,7 @@ def main():
     print(" - modelo_random_forest.joblib")
     print(" - classification_report.txt")
     print(" - metricas_resumo.csv")
+    print(" - comparacao_modelos.json")
     print(" - confusion_matrix.png")
     print(" - feature_importance.png")
 

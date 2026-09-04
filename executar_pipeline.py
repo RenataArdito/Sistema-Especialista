@@ -4,14 +4,15 @@ executar_pipeline.py
 Ponto de entrada unico do projeto: executa, em sequencia, as 4 etapas do
 diagrama de arquitetura do artigo (Base de Dados -> Pre-processamento ->
 Treinamento/Avaliacao do modelo Random Forest -> Inferencia sobre codigo
-novo), sem precisar entrar em cada pasta e rodar cada script manualmente.
+novo), mais uma 5a etapa que consolida tudo em um relatorio HTML --
+sem precisar entrar em cada pasta e rodar cada script manualmente.
 
 Nao duplica nenhuma logica: apenas chama, na ordem certa e com o
-diretorio de trabalho correto, os mesmos 4 scripts ja documentados no
+diretorio de trabalho correto, os mesmos scripts ja documentados no
 README (construir_dataset.py, preprocessamento.py, treinar_modelo.py,
-classificar_codigo.py). Ao final, imprime o resumo das metricas e abre
-os dois graficos de avaliacao (matriz de confusao e importancia das
-features) para visualizacao imediata.
+classificar_codigo.py, gerar_relatorio.py). Ao final, abre no navegador
+uma unica pagina com metricas, comparacao com baselines, graficos,
+trabalhos relacionados, limitacoes e trabalhos futuros.
 
 Uso:
     python executar_pipeline.py
@@ -21,16 +22,16 @@ import os
 import subprocess
 import sys
 import time
-import webbrowser
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTADOS_DIR = os.path.join(BASE_DIR, "resultados")
 
 ETAPAS = [
-    ("1/4 - Construcao da base de dados", "dados", "construir_dataset.py"),
-    ("2/4 - Pre-processamento e extracao de features (AST)", "preprocessamento", "preprocessamento.py"),
-    ("3/4 - Treinamento e avaliacao do modelo Random Forest", "modelo", "treinar_modelo.py"),
-    ("4/4 - Inferencia sobre codigo novo (demonstracao)", "inferencia", "classificar_codigo.py"),
+    ("1/5 - Construcao da base de dados", "dados", "construir_dataset.py"),
+    ("2/5 - Pre-processamento e extracao de features (AST)", "preprocessamento", "preprocessamento.py"),
+    ("3/5 - Treinamento e avaliacao do modelo Random Forest", "modelo", "treinar_modelo.py"),
+    ("4/5 - Inferencia sobre codigo novo (demonstracao)", "inferencia", "classificar_codigo.py"),
+    ("5/5 - Geracao do relatorio consolidado (HTML)", "relatorio", "gerar_relatorio.py"),
 ]
 
 
@@ -62,16 +63,9 @@ def mostrar_resumo() -> None:
         print(f.read(), flush=True)
 
 
-def abrir_graficos() -> None:
-    for nome_arquivo in ("confusion_matrix.png", "feature_importance.png"):
-        caminho = os.path.join(RESULTADOS_DIR, nome_arquivo)
-        if os.path.exists(caminho):
-            webbrowser.open(f"file://{os.path.abspath(caminho)}")
-
-
 def main() -> None:
     print("PIPELINE DO SISTEMA ESPECIALISTA", flush=True)
-    print("Base de Dados -> Pre-processamento -> Treino/Avaliacao -> Inferencia", flush=True)
+    print("Base de Dados -> Pre-processamento -> Treino/Avaliacao -> Inferencia -> Relatorio", flush=True)
     inicio_total = time.time()
 
     for titulo, subpasta, script in ETAPAS:
@@ -83,9 +77,9 @@ def main() -> None:
     print("=" * 70, flush=True)
 
     mostrar_resumo()
-    abrir_graficos()
 
     print(f"\nArtefatos gerados em: {os.path.abspath(RESULTADOS_DIR)}", flush=True)
+    print("Relatorio consolidado aberto no navegador (resultados/relatorio_resultados.html).", flush=True)
 
 
 if __name__ == "__main__":

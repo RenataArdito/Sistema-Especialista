@@ -1,0 +1,30 @@
+[
+  {
+    "modelo": "Random Forest",
+    "acuracia": 0.5476190476190477,
+    "precisao_macro": 0.5812822098536384,
+    "recall_macro": 0.5476190476190476,
+    "f1_macro": 0.5387065498136014
+  },
+  {
+    "modelo": "Maioria (Dummy)",
+    "acuracia": 0.14285714285714285,
+    "precisao_macro": 0.02040816326530612,
+    "recall_macro": 0.14285714285714285,
+    "f1_macro": 0.03571428571428571
+  },
+  {
+    "modelo": "Regressao Logistica",
+    "acuracia": 0.42857142857142855,
+    "precisao_macro": 0.4701553348612172,
+    "recall_macro": 0.42857142857142855,
+    "f1_macro": 0.4280232064418919
+  },
+  {
+    "modelo": "KNN (k=5)",
+    "acuracia": 0.4166666666666667,
+    "precisao_macro": 0.46748484137646695,
+    "recall_macro": 0.4166666666666667,
+    "f1_macro": 0.4140867345126668
+  }
+]
